@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">Services Order</string>
     <string name="title_header_login">Welcome to My Service Order</string>
     <string name="title_body_login">Log In with Email</string>
 
