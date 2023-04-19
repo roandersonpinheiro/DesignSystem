@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ordem de Serviço</string>
+    <string name="title_header_login">Bem-vindo(a) Minha Ordem de Serviço</string>
+    <string name="title_body_login">Entrar com e-mail</string>
+    <string name="text_button_dont_have_account">Não tem uma conta? Inscrever-se</string>
+    <string name="title_button_login">Entrar</string>
+    <string name="text_button_forgot_password">Esqueceu sua senha</string>
+
+    <string name="label_text_email">Email</string>
+    <string name="label_password">Senha</string>
+    <string name="label_money">Preço</string>
+
+
+    <string name="tv_money">R$: %s</string>
+    <string name="tv_money_symbol">R$</string>
+
+    <!-- Calendar-->
+    <string name="label_title_calendar">Selecione a data</string>
+    <string name="label_text_btn_cancel">Cancelar</string>
+    <string name="label_text_btn_ok">Ok</string>
+    <string name="label_text_date">Data</string>
+
+    <string name="desc_quote_of_the_day">Tenha um dia produtivo</string>
+
+    <!--Menu Home-->
+    <string name="title_menu_service_order">Ordem Serviço</string>
+    <string name="subtitle_menu_service_order">Crie suas ordens de serviço</string>
+
+    <string name="title_menu_profile">Perfil</string>
+    <string name="subtitle_menu_profile">Visualize e atualize seus dados de forma simples</string>
+
+
+    <!--SubMenu Home-->
+    <string name="title_submenu_home">Como podemos te ajudar?</string>
+    <string name="desc_submenu_home">Podemos te auxiliar com algumas  ações</string>
+
+    <string name="title_submenu_home_service">Serviços</string>
+    <string name="desc_submenu_home_service">Cadastre seus serviços</string>
+
+    <string name="title_submenu_home_customer">Clientes</string>
+    <string name="desc_submenu_home_customer">Cadastre seus clientes</string>
+
+    <string name="title_submenu_home_product">Produtos</string>
+    <string name="desc_submenu_home_product">Cadastre seus produtos</string>
+
+    <string name="title_submenu_home_category">Categorias</string>
+    <string name="desc_submenu_home_category">Registre suas categorias</string>
+
+
+    <string name="msg_generic_error">Ops! Algo deu errado…</string>
+    <string name="msg_loading">Por favor, espere…</string>
+
+    <string name="title_dialog_delete">Deletar Item ?</string>
+    <string name="msg_dialog_delete">Tem certeza de que deseja excluir este item da lista?</string>
+    <string name="label_btn_dialog_delete">Cancelar</string>
+    <string name="label_delete_btn_dialog_delete">Deletar</string>
+
+    <!-- Button Texts -->
+    <string name="button_save">Salvar</string>
+    <string name="button_ok">OK</string>
+
+    <!--Search bar-->
+    <string name="search">Pesquisar</string>
+    <string name="search_categories">Ex: eletrodomésticos</string>
+    <string name="search_customer">Ex: Ex: José</string>
+    <string name="search_product">Ex: Ar condicionado</string>
+    <string name="search_service">Ex: Manutenção de computadorest</string>
+    <string name="search_icon">pequisar icon</string>
+    <string name="close_icon">fechar icon</string>
+    <string name="title_fab_new_category">Nova Categoria</string>
+
+
+    <!-- Categories-->
+    <string name="title_toolbar_categories">Categorias</string>
+    <!-- Menu Actions -->
+    <string name="menu_action_edit">Editar</string>
+    <string name="menu_action_logout">Sair</string>
+    <string name="menu_action_settings">Configurações</string>
+    <string name="msg_empty_categories_list">Nenhuma categoria cadastrada no momento</string>
+    <string name="msg_category_deleted">Categoria deletada.</string>
+    <string name="cd_new_category">Inserir nova categoria</string>
+    <string name="btn_register_dialog_new_category">Cadastrar Nova Categoria</string>
+    <string name="title_dialog_new_category">Nova Categoria</string>
+    <string name="title_dialog_edit_category">Editar Categoria %s</string>
+    <string name="txt_register_success_category">Categoria cadastrada com sucesso</string>
+    <string name="txt_register_edit_category">Categoria editada com sucesso</string>
+    <string name="btn_save_category">Salvar</string>
+    <string name="btn_cancel_category">Cancelar</string>
+
+
+    <!--Customers-->
+    <string name="title_toolbar_customers">Clientes</string>
+    <string name="title_fab_new_customer">Novo Cliente</string>
+    <string name="cd_new_customer">Inserir novo cliente</string>
+    <string name="msg_empty_customer_list">Nenhum cliente cadastrado no momento</string>
+    <string name="title_menu_person">Pessoa física</string>
+    <string name="title_menu_business">Pessoa jurídica</string>
+
+    <!--Customers Add New Customer-->
+    <string name="title_button_register">Adicionar novo cliente</string>
+    <string name="lbl_field_state_inscription">Número de inscrição</string>
+    <string name="title_toolbar_add_new_customer">Adicionar novo cliente</string>
+    <string name="lbl_field_phone">Telefone</string>
+    <string name="lbl_field_document">Documento</string>
+    <string name="lbl_field_name">Nome</string>
+    <string name="txt_register_success_customer">Cliente cadastrado com sucesso.</string>
+    <string name="title_toolbar_edit_customer">Editar Cliente</string>
+    <string name="title_button_edit">Salvar Alteraçãoes</string>
+    <string name="txt_edit_success_customer">Cliente editado com sucesso.</string>
+
+
+    <!--List Customers-->
+    <string name="tv_phone_customer">Telefone: %s</string>
+    <string name="tv_customer_type_person">Pessoa Física</string>
+    <string name="tv_customer_type_business">Pessoa Jurídica</string>
+
+
+    <!--Service-->
+    <string name="title_toolbar_service">Serviços</string>
+    <string name="title_fab_new_service">Novo Serviço</string>
+    <string name="msg_empty_service_list">Nenhum serviço cadastrado no momento</string>
+    <string name="tv_type_component_service">Serviço</string>
+
+
+    <string name="title_button_register_service">Adicionar novo serviço</string>
+    <string name="title_toolbar_add_new_service">Adicionar novo serviço</string>
+    <string name="txt_register_success_service">Serviço registrado com sucesso.</string>
+    <string name="title_toolbar_edit_service">Editar serviço</string>
+    <string name="title_button_edit_service">Salvar alterações</string>
+    <string name="txt_edit_success_service">Serviço editado com sucesso.</string>
+    <string name="lbl_field_extra_info">Observação</string>
+    <string name="lbl_field_name_service">Nome Serviço</string>
+    <string name="lbl_field_price_service">Preço serviço</string>
+
+
+    <!--Product-->
+    <string name="title_toolbar_product">Produtos</string>
+    <string name="title_fab_new_product">Novo Produto</string>
+    <string name="msg_empty_product_list">Nenhum produto cadastrado no momento</string>
+    <string name="tv_type_component_product">Produto</string>
+
+    <string name="title_button_register_product">Adicionar novo produto</string>
+    <string name="title_button_register_category_in_product">Adicionar nova categoria</string>
+    <string name="title_toolbar_add_new_product">Adicionar novo produto</string>
+    <string name="txt_register_success_product">Produto registrado com sucesso.</string>
+    <string name="title_toolbar_edit_product">Editar produto</string>
+    <string name="title_button_edit_product">Salvar alterações</string>
+    <string name="txt_edit_success_product">Produto editado com sucesso.</string>
+    <string name="lbl_field_extra_info_product">Observação</string>
+    <string name="lbl_field_name_product">Nome produto</string>
+    <string name="lbl_field_price_product">Preço produto</string>
+    <string name="lbl_field_purchase_price_product">Preço de compra</string>
+
+    <string name="lbl_field_search_categories_product">Buscar Categoria</string>
+    <string name="lbl_field_search_customers_service_order">Buscar Cliente</string>
+    <string name="lbl_field_search_status_service_order">Buscar status</string>
+    <string name="lbl_field_search_sales_unit">Buscar Unidade de venda</string>
+
+
+    <!--Order Service-->
+    <string name="title_toolbar_order_service">Ordem de Serviços</string>
+    <string name="title_fab_new_order_service">Nova ordem de serviço</string>
+    <string name="msg_empty_order_service_list">Nenhuma ordem de serviço cadastrada no momento</string>
+    <string name="title_toolbar_add_new_order_service">Add new order service</string>
+    <string name="search_order_service">Procure sua ordem de serviço</string>
+    <string name="tabs_order_service_summary">Resumo</string>
+    <string name="tabs_order_service_items">Itens</string>
+    <string name="title_fab_new_item_order_service">Adicionar Item</string>
+    <string name="fab_sub_menu_products">Produtos</string>
+    <string name="fab_sub_menu_services">Serviços</string>
+    <string name="fab_menu_item">Adicionar Item</string>
+    <string name="title_toolbar_order_service_choose_items">Selecione seus itens</string>
+    <string name="fab_choose_items">Finalizar</string>
+    <string name="lbl_button_cancel_choose_items">Cancelar</string>
+    <string name="lbl_button_confirm_choose_items">Confirmar</string>
+    <string name="lbl_total_choose_items">Total</string>
+    <string name="lbl_empty_choose_items">Por favor, selecione os itens</string>
+    <string name="lbl_title_checkout_dialog_choose_items">Checkout</string>
+    <string name="msg_empty_items_choose_list">Nenhum item selecionado</string>
+    <string name="lbl_product_service_order">Produto(s)</string>
+    <string name="lbl_service_order">Serviços(s)</string>
+    <string name="lbl_text_date_creation">Data de criação</string>
+    <string name="title_button_service_order">Salvar ordem de service</string>
+    <string name="txt_register_success_service_order">Ordem de serviço registrada com sucesso.</string>
+
+
+
+    <!--Forgot password -->
+    <string name="title_forgot_password">ESQUECEU SUA SENHA?</string>
+    <string name="title_forgot_password_desc">Digite seu e-mail cadastrado abaixo para receber instruções de redefinição de senha</string>
+    <string name="title_button_send">Enviar link de redefinição</string>
+    <string name="title_remember_password">Lembra da senha? Conecte-se</string>
+
+</resources>
