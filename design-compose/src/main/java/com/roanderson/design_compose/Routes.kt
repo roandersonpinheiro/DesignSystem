@@ -1,5 +1,3 @@
-package com.roanderson.design_compose
-
 sealed class Routes(val route: String) {
     object Login : Routes("Login")
 
