@@ -48,6 +48,7 @@ dependencies {
 
     implementation "com.google.accompanist:accompanist-pager:0.22.0-rc"
     implementation 'androidx.activity:activity-ktx:1.7.2'
+    implementation 'androidx.navigation:navigation-runtime-ktx:2.5.2'
 
     // CameraX
     def camerax_version = "1.0.1"
