@@ -49,6 +49,8 @@ dependencies {
     implementation "com.google.accompanist:accompanist-pager:0.22.0-rc"
     implementation 'androidx.activity:activity-ktx:1.7.2'
     implementation 'androidx.navigation:navigation-runtime-ktx:2.5.2'
+    implementation 'androidx.media3:media3-ui:1.0.0-alpha03'
+    implementation 'androidx.media3:media3-common:1.0.0-alpha03'
 
     // CameraX
     def camerax_version = "1.0.1"
@@ -78,6 +80,7 @@ dependencies {
     // Coil
     implementation "io.coil-kt:coil-compose:1.4.0"
 
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.7'
 
     //Animations
     implementation "com.airbnb.android:lottie-compose:5.0.0"
