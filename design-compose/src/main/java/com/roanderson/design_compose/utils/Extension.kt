@@ -13,3 +13,15 @@ fun Array<Int>.bubbleSort() {
         }
     }
 }
+fun List<Int>.quicksort(): List<Int> {
+    if (size <= 1) {
+        return this
+    }
+
+    val pivot = this[size / 2]
+    val equal = filter { it == pivot }
+    val less = filter { it < pivot }
+    val greater = filter { it > pivot }
+
+    return less.quicksort() + equal + greater.quicksort()
+}
