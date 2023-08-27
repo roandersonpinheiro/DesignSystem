@@ -25,3 +25,39 @@ fun List<Int>.quicksort(): List<Int> {
 
     return less.quicksort() + equal + greater.quicksort()
 }
+fun MutableList<Int>.radixSort() {
+    if (this.isEmpty()) {
+        return
+    }
+
+    val maxNumber = this.maxOrNull() ?: return
+    var divisor = 1
+
+    while (maxNumber / divisor > 0) {
+        countingSortByDigit(divisor)
+        divisor *= 10
+    }
+}
+
+fun MutableList<Int>.countingSortByDigit(divisor: Int) {
+    val output = MutableList(size) { 0 }
+    val countingArray = Array(10) { 0 }
+
+    forEach { num ->
+        val digit = (num / divisor) % 10
+        countingArray[digit]++
+    }
+
+    for (i in 1 until countingArray.size) {
+        countingArray[i] += countingArray[i - 1]
+    }
+
+    for (i in size - 1 downTo 0) {
+        val num = this[i]
+        val digit = (num / divisor) % 10
+        output[countingArray[digit] - 1] = num
+        countingArray[digit]--
+    }
+
+    output.copyInto(this)
+}
