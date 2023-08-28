@@ -61,3 +61,14 @@ fun MutableList<Int>.countingSortByDigit(divisor: Int) {
 
     output.copyInto(this)
 }
+fun String.sortAlphabetically() = toCharArray().apply { sort() }
+
+fun <T:Any> ArrayList<T>.refreshList(items: List<T>): ArrayList<T> {
+    this.clear()
+    this.addAll(items)
+    return this
+}
+fun <T:Any> ArrayList<T>.addOnlyNewItems(items: List<T>): ArrayList<T> {
+    items.forEach { if(!this.contains(it)) this.add(it) }
+    return this
+}
