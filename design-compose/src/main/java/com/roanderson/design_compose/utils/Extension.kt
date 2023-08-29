@@ -78,4 +78,17 @@ fun Random.nextRandomLetter(): Char {
     val alphabet = ('a'..'z').toList()
     return alphabet[this.nextInt(alphabet.size)]
 }
+fun <T> List<T>.shuffle(): List<T> {
+    val shuffledList = this.toMutableList()
+    val random = java.util.Random()
+
+    for (i in shuffledList.size - 1 downTo 1) {
+        val j = random.nextInt(i + 1)
+        val temp = shuffledList[i]
+        shuffledList[i] = shuffledList[j]
+        shuffledList[j] = temp
+    }
+
+    return shuffledList
+}
 
