@@ -61,3 +61,42 @@ fun MutableList<Int>.countingSortByDigit(divisor: Int) {
 
     output.copyInto(this)
 }
+fun <T : Comparable<T>> Array<T>.heapSort() {
+    buildMaxHeap()
+
+    for (i in size - 1 downTo 1) {
+        swap(0, i)
+        maxHeapify(0, i)
+    }
+}
+
+private fun <T : Comparable<T>> Array<T>.buildMaxHeap() {
+    val n = size
+    for (i in (n / 2 - 1) downTo 0) {
+        maxHeapify(i, n)
+    }
+}
+
+private fun <T : Comparable<T>> Array<T>.maxHeapify(index: Int, heapSize: Int) {
+    val left = 2 * index + 1
+    val right = 2 * index + 2
+    var largest = index
+
+    if (left < heapSize && this[left] > this[largest]) {
+        largest = left
+    }
+    if (right < heapSize && this[right] > this[largest]) {
+        largest = right
+    }
+
+    if (largest != index) {
+        swap(index, largest)
+        maxHeapify(largest, heapSize)
+    }
+}
+
+private fun <T : Comparable<T>> Array<T>.swap(i: Int, j: Int) {
+    val temp = this[i]
+    this[i] = this[j]
+    this[j] = temp
+}
