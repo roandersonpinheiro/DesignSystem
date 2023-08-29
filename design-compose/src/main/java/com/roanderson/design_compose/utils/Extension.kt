@@ -1,5 +1,7 @@
 package com.roanderson.design_compose.utils
 
+import kotlin.random.Random
+
 
 fun Array<Int>.bubbleSort() {
     val n = size
@@ -72,3 +74,8 @@ fun <T:Any> ArrayList<T>.addOnlyNewItems(items: List<T>): ArrayList<T> {
     items.forEach { if(!this.contains(it)) this.add(it) }
     return this
 }
+fun Random.nextRandomLetter(): Char {
+    val alphabet = ('a'..'z').toList()
+    return alphabet[this.nextInt(alphabet.size)]
+}
+
