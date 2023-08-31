@@ -1,6 +1,11 @@
 package com.roanderson.design_compose.utils
 
-import kotlin.random.Random
+import android.os.Build
+import androidx.annotation.RequiresApi
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.nio.file.Files
+import java.util.*
 
 
 fun Array<Int>.bubbleSort() {
@@ -26,42 +31,6 @@ fun List<Int>.quicksort(): List<Int> {
     val greater = filter { it > pivot }
 
     return less.quicksort() + equal + greater.quicksort()
-}
-fun MutableList<Int>.radixSort() {
-    if (this.isEmpty()) {
-        return
-    }
-
-    val maxNumber = this.maxOrNull() ?: return
-    var divisor = 1
-
-    while (maxNumber / divisor > 0) {
-        countingSortByDigit(divisor)
-        divisor *= 10
-    }
-}
-
-fun MutableList<Int>.countingSortByDigit(divisor: Int) {
-    val output = MutableList(size) { 0 }
-    val countingArray = Array(10) { 0 }
-
-    forEach { num ->
-        val digit = (num / divisor) % 10
-        countingArray[digit]++
-    }
-
-    for (i in 1 until countingArray.size) {
-        countingArray[i] += countingArray[i - 1]
-    }
-
-    for (i in size - 1 downTo 0) {
-        val num = this[i]
-        val digit = (num / divisor) % 10
-        output[countingArray[digit] - 1] = num
-        countingArray[digit]--
-    }
-
-    output.copyInto(this)
 }
 fun String.sortAlphabetically() = toCharArray().apply { sort() }
 
@@ -90,5 +59,11 @@ fun <T> List<T>.shuffle(): List<T> {
     }
 
     return shuffledList
+}
+@RequiresApi(Build.VERSION_CODES.O)
+fun File.toBase64(): String {
+    val bytes = Files.readAllBytes(this.toPath())
+    val base64 = Base64.getEncoder().encodeToString(bytes)
+    return base64
 }
 
