@@ -1,5 +1,7 @@
 package com.roanderson.design_compose.utils
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import androidx.annotation.RequiresApi
 import java.io.ByteArrayOutputStream
@@ -65,5 +67,19 @@ fun File.toBase64(): String {
     val bytes = Files.readAllBytes(this.toPath())
     val base64 = Base64.getEncoder().encodeToString(bytes)
     return base64
+}
+// Defina uma chave para o token
+private const val TOKEN_KEY = "token_key"
+
+fun Context.saveToken(token: String) {
+    val sharedPreferences: SharedPreferences = getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
+    val editor = sharedPreferences.edit()
+    editor.putString(TOKEN_KEY, token)
+    editor.apply()
+}
+
+fun Context.getToken(): String? {
+    val sharedPreferences: SharedPreferences = getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
+    return sharedPreferences.getString(TOKEN_KEY, null)
 }
 
