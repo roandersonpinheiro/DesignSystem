@@ -6,6 +6,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.lang.Math.sqrt
 import java.nio.file.Files
 import java.util.*
 
@@ -81,5 +82,18 @@ fun Context.saveToken(token: String) {
 fun Context.getToken(): String? {
     val sharedPreferences: SharedPreferences = getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
     return sharedPreferences.getString(TOKEN_KEY, null)
+}
+class DoubleWrapper(val value: Double)
+fun DoubleWrapper.calculateBhaskara(a: Double, b: Double, c: Double): Pair<Double?, Double?> {
+    val discriminant = b * b - 4 * a * c
+
+    if (discriminant < 0) {
+        return Pair(null, null) // Não há raízes reais
+    }
+
+    val root1 = (-b + sqrt(discriminant)) / (2 * a)
+    val root2 = (-b - sqrt(discriminant)) / (2 * a)
+
+    return Pair(root1, root2)
 }
 
