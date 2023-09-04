@@ -6,9 +6,11 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileOutputStream
 import java.lang.Math.sqrt
 import java.nio.file.Files
 import java.util.*
+import android.util.Base64
 
 
 fun Array<Int>.bubbleSort() {
@@ -69,7 +71,7 @@ fun File.toBase64(): String {
     val base64 = Base64.getEncoder().encodeToString(bytes)
     return base64
 }
-// Defina uma chave para o token
+
 private const val TOKEN_KEY = "token_key"
 
 fun Context.saveToken(token: String) {
@@ -95,5 +97,17 @@ fun DoubleWrapper.calculateBhaskara(a: Double, b: Double, c: Double): Pair<Doubl
     val root2 = (-b - sqrt(discriminant)) / (2 * a)
 
     return Pair(root1, root2)
+}
+fun String.base64ToFile(filePath: String): Boolean {
+    try {
+        val decodedBytes = Base64.decode(this, Base64.DEFAULT)
+        val outputStream = FileOutputStream(filePath)
+        outputStream.write(decodedBytes)
+        outputStream.close()
+        return true
+    } catch (e: Exception) {
+        e.printStackTrace()
+        return false
+    }
 }
 
