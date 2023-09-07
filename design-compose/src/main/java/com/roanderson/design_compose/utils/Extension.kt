@@ -11,6 +11,8 @@ import java.lang.Math.sqrt
 import java.nio.file.Files
 import java.util.*
 import android.util.Base64
+import java.text.NumberFormat
+import java.text.SimpleDateFormat
 
 
 fun Array<Int>.bubbleSort() {
@@ -110,4 +112,32 @@ fun String.base64ToFile(filePath: String): Boolean {
         return false
     }
 }
+
+inline fun <T : Any, R> T?.withNotNull(block: (T) -> R): R? {
+    return this?.let(block)
+}
+//usage
+//val nullableValue: String? = null
+//nullableValue.withNotNull { value ->
+//}
+
+fun Int.toFormattedString(): String {
+    return NumberFormat.getInstance().format(this)
+}
+
+fun Long.toFormattedString(): String {
+    return NumberFormat.getInstance().format(this)
+}
+
+fun Date.toFormattedString(): String {
+    return SimpleDateFormat.getDateInstance().format(this)
+}
+inline fun <T> T.applyIf(condition: Boolean, block: T.() -> Unit): T {
+    return if (condition) {
+        this.apply(block)
+    } else {
+        this
+    }
+}
+
 
