@@ -177,6 +177,21 @@ fun String.formatCpfOrCnpj(isCpf: Boolean): String {
             this
         }
     }
+}fun String.formatPlate(): String {
+
+    val placaSemCaracteresEspeciais = this.replace("[^a-zA-Z0-9]".toRegex(), "")
+
+    if (placaSemCaracteresEspeciais.length < 3) {
+        return placaSemCaracteresEspeciais.toUpperCase()
+    }
+
+
+    val letras = placaSemCaracteresEspeciais.substring(0, 3)
+    val numeros = placaSemCaracteresEspeciais.substring(3, placaSemCaracteresEspeciais.length - 1)
+    val letrasFinais = placaSemCaracteresEspeciais.substring(placaSemCaracteresEspeciais.length - 1)
+
+
+    return "${letras.toUpperCase()}${numeros}${letrasFinais.toUpperCase()}"
 }
 
 
