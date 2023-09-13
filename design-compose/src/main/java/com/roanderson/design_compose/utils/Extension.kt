@@ -194,6 +194,12 @@ fun String.formatCpfOrCnpj(isCpf: Boolean): String {
     return "${letras.toUpperCase()}${numeros}${letrasFinais.toUpperCase()}"
 }
 
+fun Random.nextPassword(length: Int): String {
+    val charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    return (1..length)
+        .map { charset.random() }
+        .joinToString("")
+}
 
 
 
