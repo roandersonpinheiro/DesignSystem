@@ -200,6 +200,15 @@ fun Random.nextPassword(length: Int): String {
         .map { charset.random() }
         .joinToString("")
 }
+fun Random.nextMatrix(n: Int): Array<Array<Int>> {
+    val matrix = Array(n) { Array(n) { 0 } }
+    for (i in 0 until n) {
+        for (j in 0 until n) {
+            matrix[i][j] = this.nextInt()
+        }
+    }
+    return matrix
+}
 
 
 
