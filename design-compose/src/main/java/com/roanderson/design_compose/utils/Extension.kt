@@ -27,6 +27,7 @@ fun Array<Int>.bubbleSort() {
         }
     }
 }
+
 fun List<Int>.quicksort(): List<Int> {
     if (size <= 1) {
         return this
@@ -39,21 +40,25 @@ fun List<Int>.quicksort(): List<Int> {
 
     return less.quicksort() + equal + greater.quicksort()
 }
+
 fun String.sortAlphabetically() = toCharArray().apply { sort() }
 
-fun <T:Any> ArrayList<T>.refreshList(items: List<T>): ArrayList<T> {
+fun <T : Any> ArrayList<T>.refreshList(items: List<T>): ArrayList<T> {
     this.clear()
     this.addAll(items)
     return this
 }
-fun <T:Any> ArrayList<T>.addOnlyNewItems(items: List<T>): ArrayList<T> {
-    items.forEach { if(!this.contains(it)) this.add(it) }
+
+fun <T : Any> ArrayList<T>.addOnlyNewItems(items: List<T>): ArrayList<T> {
+    items.forEach { if (!this.contains(it)) this.add(it) }
     return this
 }
+
 fun Random.nextRandomLetter(): Char {
     val alphabet = ('a'..'z').toList()
     return alphabet[this.nextInt(alphabet.size)]
 }
+
 fun <T> List<T>.shuffle(): List<T> {
     val shuffledList = this.toMutableList()
     val random = java.util.Random()
@@ -67,6 +72,7 @@ fun <T> List<T>.shuffle(): List<T> {
 
     return shuffledList
 }
+
 @RequiresApi(Build.VERSION_CODES.O)
 fun File.toBase64(): String {
     val bytes = Files.readAllBytes(this.toPath())
@@ -77,17 +83,21 @@ fun File.toBase64(): String {
 private const val TOKEN_KEY = "token_key"
 
 fun Context.saveToken(token: String) {
-    val sharedPreferences: SharedPreferences = getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
+    val sharedPreferences: SharedPreferences =
+        getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
     val editor = sharedPreferences.edit()
     editor.putString(TOKEN_KEY, token)
     editor.apply()
 }
 
 fun Context.getToken(): String? {
-    val sharedPreferences: SharedPreferences = getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
+    val sharedPreferences: SharedPreferences =
+        getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
     return sharedPreferences.getString(TOKEN_KEY, null)
 }
+
 class DoubleWrapper(val value: Double)
+
 fun DoubleWrapper.calculateBhaskara(a: Double, b: Double, c: Double): Pair<Double?, Double?> {
     val discriminant = b * b - 4 * a * c
 
@@ -100,6 +110,7 @@ fun DoubleWrapper.calculateBhaskara(a: Double, b: Double, c: Double): Pair<Doubl
 
     return Pair(root1, root2)
 }
+
 fun String.base64ToFile(filePath: String): Boolean {
     try {
         val decodedBytes = Base64.decode(this, Base64.DEFAULT)
@@ -132,6 +143,7 @@ fun Long.toFormattedString(): String {
 fun Date.toFormattedString(): String {
     return SimpleDateFormat.getDateInstance().format(this)
 }
+
 inline fun <T> T.applyIf(condition: Boolean, block: T.() -> Unit): T {
     return if (condition) {
         this.apply(block)
@@ -161,23 +173,36 @@ fun main() {
         println("${it.name} - ${it.status}")
     }
 }
+
 fun String.formatCpfOrCnpj(isCpf: Boolean): String {
     val digitsOnly = this.filter { it.isDigit() }
 
     if (isCpf) {
         return if (digitsOnly.length == 11) {
-            "${digitsOnly.substring(0, 3)}.${digitsOnly.substring(3, 6)}.${digitsOnly.substring(6, 9)}-${digitsOnly.substring(9)}"
+            "${digitsOnly.substring(0, 3)}.${digitsOnly.substring(3, 6)}.${
+                digitsOnly.substring(
+                    6,
+                    9
+                )
+            }-${digitsOnly.substring(9)}"
         } else {
             this
         }
     } else {
         return if (digitsOnly.length == 14) {
-            "${digitsOnly.substring(0, 2)}.${digitsOnly.substring(2, 5)}.${digitsOnly.substring(5, 8)}/${digitsOnly.substring(8, 12)}-${digitsOnly.substring(12)}"
+            "${digitsOnly.substring(0, 2)}.${digitsOnly.substring(2, 5)}.${
+                digitsOnly.substring(
+                    5,
+                    8
+                )
+            }/${digitsOnly.substring(8, 12)}-${digitsOnly.substring(12)}"
         } else {
             this
         }
     }
-}fun String.formatPlate(): String {
+}
+
+fun String.formatPlate(): String {
 
     val placaSemCaracteresEspeciais = this.replace("[^a-zA-Z0-9]".toRegex(), "")
 
@@ -200,6 +225,7 @@ fun Random.nextPassword(length: Int): String {
         .map { charset.random() }
         .joinToString("")
 }
+
 fun Random.nextMatrix(n: Int): Array<Array<Int>> {
     val matrix = Array(n) { Array(n) { 0 } }
     for (i in 0 until n) {
@@ -208,6 +234,19 @@ fun Random.nextMatrix(n: Int): Array<Array<Int>> {
         }
     }
     return matrix
+}
+
+fun dataExpirou(dataExpiracao: String): Boolean {
+    try {
+        val formatoData = SimpleDateFormat("dd/MM/yyyy")
+        val dataAtual = Date()
+        val dataExpiracaoFormatada = formatoData.parse(dataExpiracao)
+
+        return dataAtual.after(dataExpiracaoFormatada)
+    } catch (e: Exception) {
+        e.printStackTrace()
+        return false
+    }
 }
 
 
