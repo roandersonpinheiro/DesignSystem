@@ -1,6 +1,7 @@
 package com.roanderson.design_compose.utils
 
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -10,6 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -63,5 +65,10 @@ fun Random.nextColor(): Color {
         green = nextFloat(),
         blue = nextFloat(),
         alpha = 1.0f
+    )
+}
+fun Modifier.roundedCorner(radius: Int = 4): Modifier {
+    return this.then(
+        Modifier.clip(shape = RoundedCornerShape(radius.dp))
     )
 }
