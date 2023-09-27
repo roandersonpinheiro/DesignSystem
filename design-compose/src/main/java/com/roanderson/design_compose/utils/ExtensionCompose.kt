@@ -11,10 +11,12 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import java.util.Random
 
 fun Modifier.myCustomMargin(
     start: Dp = 0.dp,
@@ -54,4 +56,12 @@ fun Modifier.autoShowSoftKeyboardOnFocus(padding: Dp = 0.dp): Modifier {
     }
 
     return this.padding(padding)
+}
+fun Random.nextColor(): Color {
+    return Color(
+        red = nextFloat(),
+        green = nextFloat(),
+        blue = nextFloat(),
+        alpha = 1.0f
+    )
 }
