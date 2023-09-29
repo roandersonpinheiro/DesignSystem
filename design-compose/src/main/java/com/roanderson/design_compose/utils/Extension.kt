@@ -263,5 +263,8 @@ fun String.isValidEmail(): Boolean {
 }
 
 
+fun Int.factorial(): Int {
+    return if (this <= 1) 1 else this * (this - 1).factorial()
+}
 
 
