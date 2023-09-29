@@ -257,6 +257,13 @@ val String.md5: String
         }
     }
 
+fun String.isValidEmail(): Boolean {
+    val emailRegex = Regex("^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})")
+    return emailRegex.matches(this)
+}
 
+fun Int.factorial(): Int {
+    return if (this <= 1) 1 else this * (this - 1).factorial()
+}
 
 
