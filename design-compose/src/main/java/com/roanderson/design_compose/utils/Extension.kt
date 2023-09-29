@@ -15,7 +15,9 @@ import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.security.MessageDigest
 
-
+fun <T> List<T>.orDefault(defaultList: List<T>): List<T> {
+    return if (isEmpty()) defaultList else this
+}
 fun Array<Int>.bubbleSort() {
     val n = size
     for (i in 0 until n - 1) {
