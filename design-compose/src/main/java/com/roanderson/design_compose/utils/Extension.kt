@@ -15,6 +15,9 @@ import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.security.MessageDigest
 
+fun Date.isFuture(): Boolean {
+    return this > Date()
+}
 fun <T> List<T>.orDefault(defaultList: List<T>): List<T> {
     return ifEmpty { defaultList }
 }
