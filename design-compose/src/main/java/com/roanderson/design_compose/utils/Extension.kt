@@ -293,5 +293,11 @@ fun multiplyMatrices(matrixA: Array<Array<Int>>, matrixB: Array<Array<Int>>): Ar
 
     return result
 }
+fun generatePassword(length: Int): String {
+    val charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+"
+    return (1..length)
+        .map { charset.random() }
+        .joinToString("")
+}
 
 
