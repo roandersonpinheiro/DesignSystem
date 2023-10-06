@@ -15,6 +15,7 @@ import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.security.MessageDigest
 import kotlin.time.Duration.Companion.seconds
+import kotlin.time.ExperimentalTime
 
 fun Date.isFuture(): Boolean {
     return this > Date()
@@ -300,12 +301,16 @@ fun generatePassword(length: Int): String {
         .map { charset.random() }
         .joinToString("")
 }
+@OptIn(ExperimentalTime::class)
 fun offExpiration() {
     val offerExpirationTimeInSeconds = 534_600.seconds
     offerExpirationTimeInSeconds.toComponents { days, hrs, mins, secs, nanoSecs ->
         println("Your offer about to expire in")
         println("${days} days : ${hrs} hrs : ${mins} mins")
     }
+}
+fun List<Int>.average(): Double {
+    return if (isEmpty()) 0.0 else sum().toDouble() / size
 }
 
 
