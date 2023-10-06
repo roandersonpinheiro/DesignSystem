@@ -312,5 +312,8 @@ fun offExpiration() {
 fun List<Int>.average(): Double {
     return if (isEmpty()) 0.0 else sum().toDouble() / size
 }
+fun String.limitLength(maxLength: Int, ellipsis: String = "..."): String {
+    return if (length <= maxLength) this else substring(0, maxLength - ellipsis.length) + ellipsis
+}
 
 
