@@ -315,5 +315,13 @@ fun List<Int>.average(): Double {
 fun String.limitLength(maxLength: Int, ellipsis: String = "..."): String {
     return if (length <= maxLength) this else substring(0, maxLength - ellipsis.length) + ellipsis
 }
+fun <T> List<T?>.isNullOrEmptyWithNulls(): Boolean {
+    for (item in this) {
+        if (item != null) {
+            return false
+        }
+    }
+    return true
+}
 
 
