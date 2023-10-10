@@ -323,7 +323,12 @@ fun <T> List<T?>.isNullOrEmptyWithNulls(): Boolean {
     }
     return true
 }
+
+fun List<Int>.filterEvenNumbers(): List<Int> {
+    return this.filter { it % 2 == 0 }
+    
 fun Int.isEven(): Boolean {
     return this % 2 == 0
+
 }
 
