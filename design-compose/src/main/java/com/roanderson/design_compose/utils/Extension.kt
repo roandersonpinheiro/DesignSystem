@@ -331,4 +331,6 @@ fun Int.isEven(): Boolean {
     return this % 2 == 0
 
 }
-
+fun List<Int>.maxElement(): Int? {
+    return if (isEmpty()) null else this.maxOrNull()
+}
