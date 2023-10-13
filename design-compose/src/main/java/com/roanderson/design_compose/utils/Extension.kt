@@ -341,3 +341,10 @@ fun String.isPalindrome(): Boolean {
 fun String.blankSpaceRemover(): String {
     return this.replace(" ", "")
 }
+fun <T> List<T>.splitIntoParts(partSize: Int): List<List<T>> {
+    val parts = mutableListOf<List<T>>()
+    for (i in 0 until size step partSize) {
+        parts.add(subList(i, minOf(i + partSize, size)))
+    }
+    return parts
+}
