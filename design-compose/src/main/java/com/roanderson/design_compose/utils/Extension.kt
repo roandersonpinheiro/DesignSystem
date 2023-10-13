@@ -338,3 +338,6 @@ fun String.isPalindrome(): Boolean {
     val cleanString = this.replace(Regex("[^A-Za-z0-9]"), "").toLowerCase()
     return cleanString == cleanString.reversed()
 }
+fun String.blankSpaceRemover(): String {
+    return this.replace(" ", "")
+}
