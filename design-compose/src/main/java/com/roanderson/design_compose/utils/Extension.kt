@@ -16,6 +16,10 @@ import java.text.SimpleDateFormat
 import java.security.MessageDigest
 import kotlin.time.Duration.Companion.seconds
 import kotlin.time.ExperimentalTime
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Calendar
+
 
 fun Date.isFuture(): Boolean {
     return this > Date()
@@ -347,4 +351,17 @@ fun <T> List<T>.splitIntoParts(partSize: Int): List<List<T>> {
         parts.add(subList(i, minOf(i + partSize, size)))
     }
     return parts
+}
+
+fun Date.calculateAge(): Int {
+    val calendar = Calendar.getInstance()
+    val today = calendar.time
+    val dob = this
+
+    calendar.time = dob
+    val dobYear = calendar.get(Calendar.YEAR)
+    calendar.time = today
+    val todayYear = calendar.get(Calendar.YEAR)
+
+    return todayYear - dobYear
 }
