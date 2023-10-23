@@ -370,3 +370,7 @@ fun List<Int>.findMax(): Int {
     require(this.isNotEmpty()) { "A lista não pode estar vazia" }
     return this.maxOrNull() ?: 0
 }
+
+fun Int.cube(): Int {
+    return this * this * this
+}
