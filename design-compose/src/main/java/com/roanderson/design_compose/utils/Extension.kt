@@ -365,3 +365,8 @@ fun Date.calculateAge(): Int {
 
     return todayYear - dobYear
 }
+
+fun List<Int>.findMax(): Int {
+    require(this.isNotEmpty()) { "A lista não pode estar vazia" }
+    return this.maxOrNull() ?: 0
+}
