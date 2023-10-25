@@ -374,3 +374,6 @@ fun List<Int>.findMax(): Int {
 fun Int.cube(): Int {
     return this * this * this
 }
+fun File.isEmptyDirectory(): Boolean {
+    return isDirectory && listFiles()?.isEmpty() == true
+}
