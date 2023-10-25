@@ -377,3 +377,6 @@ fun Int.cube(): Int {
 fun File.isEmptyDirectory(): Boolean {
     return isDirectory && listFiles()?.isEmpty() == true
 }
+fun <T, K> List<T>.groupByKey(keySelector: (T) -> K): Map<K, List<T>> {
+    return groupBy(keySelector)
+}
