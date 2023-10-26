@@ -2,6 +2,7 @@ package com.roanderson.design_compose.utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.net.ConnectivityManager
 import android.os.Build
 import androidx.annotation.RequiresApi
 import java.io.ByteArrayOutputStream
@@ -24,9 +25,11 @@ import java.util.Calendar
 fun Date.isFuture(): Boolean {
     return this > Date()
 }
+
 fun <T> List<T>.orDefault(defaultList: List<T>): List<T> {
     return ifEmpty { defaultList }
 }
+
 fun Array<Int>.bubbleSort() {
     val n = size
     for (i in 0 until n - 1) {
@@ -260,6 +263,7 @@ fun dataExpirou(dataExpiracao: String): Boolean {
         return false
     }
 }
+
 val String.md5: String
     get() {
         val bytes = MessageDigest.getInstance("MD5").digest(this.toByteArray())
@@ -277,6 +281,7 @@ fun String.isValidEmail(): Boolean {
 fun Int.factorial(): Int {
     return if (this <= 1) 1 else this * (this - 1).factorial()
 }
+
 fun multiplyMatrices(matrixA: Array<Array<Int>>, matrixB: Array<Array<Int>>): Array<Array<Int>> {
     val numRowsA = matrixA.size
     val numColsA = matrixA[0].size
@@ -299,12 +304,14 @@ fun multiplyMatrices(matrixA: Array<Array<Int>>, matrixB: Array<Array<Int>>): Ar
 
     return result
 }
+
 fun generatePassword(length: Int): String {
     val charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+"
     return (1..length)
         .map { charset.random() }
         .joinToString("")
 }
+
 @OptIn(ExperimentalTime::class)
 fun offExpiration() {
     val offerExpirationTimeInSeconds = 534_600.seconds
@@ -313,12 +320,15 @@ fun offExpiration() {
         println("${days} days : ${hrs} hrs : ${mins} mins")
     }
 }
+
 fun List<Int>.average(): Double {
     return if (isEmpty()) 0.0 else sum().toDouble() / size
 }
+
 fun String.limitLength(maxLength: Int, ellipsis: String = "..."): String {
     return if (length <= maxLength) this else substring(0, maxLength - ellipsis.length) + ellipsis
 }
+
 fun <T> List<T?>.isNullOrEmptyWithNulls(): Boolean {
     for (item in this) {
         if (item != null) {
@@ -330,21 +340,26 @@ fun <T> List<T?>.isNullOrEmptyWithNulls(): Boolean {
 
 fun List<Int>.filterEvenNumbers(): List<Int> {
     return this.filter { it % 2 == 0 }
-}    
+}
+
 fun Int.isEven(): Boolean {
     return this % 2 == 0
 
 }
+
 fun List<Int>.maxElement(): Int? {
     return if (isEmpty()) null else this.maxOrNull()
 }
+
 fun String.isPalindrome(): Boolean {
     val cleanString = this.replace(Regex("[^A-Za-z0-9]"), "").toLowerCase()
     return cleanString == cleanString.reversed()
 }
+
 fun String.blankSpaceRemover(): String {
     return this.replace(" ", "")
 }
+
 fun <T> List<T>.splitIntoParts(partSize: Int): List<List<T>> {
     val parts = mutableListOf<List<T>>()
     for (i in 0 until size step partSize) {
@@ -374,9 +389,20 @@ fun List<Int>.findMax(): Int {
 fun Int.cube(): Int {
     return this * this * this
 }
+
 fun File.isEmptyDirectory(): Boolean {
     return isDirectory && listFiles()?.isEmpty() == true
 }
+
 fun <T, K> List<T>.groupByKey(keySelector: (T) -> K): Map<K, List<T>> {
     return groupBy(keySelector)
+}
+
+fun Context?.isOnline(): Boolean {
+    this?.apply {
+        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = cm.activeNetworkInfo
+        return netInfo != null && netInfo.isConnected
+    }
+    return false
 }
