@@ -412,3 +412,6 @@ fun celsiusToFahrenheit(celsius: Double): Double {
 fun <T> List<T>.concatenateWith(otherList: List<T>): List<T> {
     return this + otherList
 }
+fun calculatePercentage(number: Double, percentage: Double): Double {
+    return (percentage / 100) * number
+}
