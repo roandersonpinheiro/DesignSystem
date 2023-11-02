@@ -20,6 +20,7 @@ import kotlin.time.ExperimentalTime
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Calendar
+import kotlin.math.sqrt
 
 
 fun Date.isFuture(): Boolean {
@@ -415,3 +416,16 @@ fun <T> List<T>.concatenateWith(otherList: List<T>): List<T> {
 fun calculatePercentage(number: Double, percentage: Double): Double {
     return (percentage / 100) * number
 }
+fun calculateBhaskaraRoots(a: Double, b: Double, c: Double): Pair<Double?, Double?> {
+    val discriminant = b * b - 4 * a * c
+    if (discriminant < 0) {
+        // No real roots
+        return Pair(null, null)
+    } else {
+        val sqrtDiscriminant = sqrt(discriminant)
+        val x1 = (-b + sqrtDiscriminant) / (2 * a)
+        val x2 = (-b - sqrtDiscriminant) / (2 * a)
+        return Pair(x1, x2)
+    }
+}
+
