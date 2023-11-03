@@ -428,4 +428,18 @@ fun calculateBhaskaraRoots(a: Double, b: Double, c: Double): Pair<Double?, Doubl
         return Pair(x1, x2)
     }
 }
+fun captureLetters(input: String): String {
+    val regex = Regex("[a-zA-Z]+")
+    val matches = regex.findAll(input)
+    val result = StringBuilder()
+
+    for (match in matches) {
+        result.append(match.value)
+    }
+
+    return result.toString()
+}
+
+
+
 
