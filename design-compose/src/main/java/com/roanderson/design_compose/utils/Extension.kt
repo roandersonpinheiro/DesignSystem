@@ -440,6 +440,13 @@ fun captureLetters(input: String): String {
     return result.toString()
 }
 
+fun String.removeAllWhitespaces(): String {
+    return this.replace("\\s+".toRegex(), "")
+}
+
+fun String.removeDuplicateWhitespaces(): String {
+    return this.replace("\\s+".toRegex(), " ")
+}
 
 
 
