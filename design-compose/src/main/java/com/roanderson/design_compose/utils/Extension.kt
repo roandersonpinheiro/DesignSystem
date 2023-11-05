@@ -448,5 +448,19 @@ fun String.removeDuplicateWhitespaces(): String {
     return this.replace("\\s+".toRegex(), " ")
 }
 
+fun addMatrices(matrix1: Array<IntArray>, matrix2: Array<IntArray>): Array<IntArray> {
+    val rows = matrix1.size
+    val columns = matrix1[0].size
+    val result = Array(rows) { IntArray(columns) }
+
+    for (i in 0 until rows) {
+        for (j in 0 until columns) {
+            result[i][j] = matrix1[i][j] + matrix2[i][j]
+        }
+    }
+
+    return result
+}
+
 
 
