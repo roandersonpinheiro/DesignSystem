@@ -506,6 +506,13 @@ private fun decodeBytes(str: String): ByteArray {
     }
     return bytes
 }
+infix fun Date.daysBetween(otherDate: Date): Long {
+    val calendar1 = Calendar.getInstance()
+    val calendar2 = Calendar.getInstance()
+    calendar1.time = this
+    calendar2.time = otherDate
+    return (calendar2.timeInMillis - calendar1.timeInMillis) / (24 * 60 * 60 * 1000)
+}
 
 
 
