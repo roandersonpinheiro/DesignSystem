@@ -1,5 +1,8 @@
 package com.roanderson.design_compose.utils
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -72,3 +75,8 @@ fun Modifier.roundedCorner(radius: Int = 4): Modifier {
         Modifier.clip(shape = RoundedCornerShape(radius.dp))
     )
 }
+fun Context.openUrlInBrowser(url: String) {
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    startActivity(intent)
+}
+
