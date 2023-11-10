@@ -5,7 +5,9 @@ import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
@@ -78,5 +80,10 @@ fun Modifier.roundedCorner(radius: Int = 4): Modifier {
 fun Context.openUrlInBrowser(url: String) {
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
     startActivity(intent)
+}
+@OptIn(ExperimentalComposeUiApi::class)
+@Composable
+fun ControlKeyboard() {
+    val keyboardController = LocalSoftwareKeyboardController.current
 }
 
