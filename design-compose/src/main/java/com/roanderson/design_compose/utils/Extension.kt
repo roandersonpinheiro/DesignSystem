@@ -514,5 +514,18 @@ infix fun Date.daysBetween(otherDate: Date): Long {
     return (calendar2.timeInMillis - calendar1.timeInMillis) / (24 * 60 * 60 * 1000)
 }
 
+fun <T> List<T>.combine(vararg otherLists: List<T>): List<T> {
+    val combinedList = mutableListOf<T>()
+    
+
+    combinedList.addAll(this)
+    
+    for (list in otherLists) {
+        combinedList.addAll(list)
+    }
+    
+    return combinedList
+}
+
 
 
