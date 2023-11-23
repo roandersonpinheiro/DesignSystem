@@ -526,6 +526,11 @@ fun <T> List<T>.combine(vararg otherLists: List<T>): List<T> {
     
     return combinedList
 }
+fun <K, V> cobinedHashMaps(map1: HashMap<K, V>, map2: HashMap<K, V>): HashMap<K, V> {
+    val resultado = HashMap(map1)
+    resultado.putAll(map2)
+    return resultado
+}
 
 
 
