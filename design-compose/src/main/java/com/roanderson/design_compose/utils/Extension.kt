@@ -531,6 +531,9 @@ fun <K, V> cobinedHashMaps(map1: HashMap<K, V>, map2: HashMap<K, V>): HashMap<K,
     resultado.putAll(map2)
     return resultado
 }
+fun filterEvenNumbers(list: List<Int>): List<Int> {
+    return list.filter { it % 2 == 0 }
+}
 
 
 
