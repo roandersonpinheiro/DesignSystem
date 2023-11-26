@@ -537,7 +537,10 @@ fun filterEvenNumbers(list: List<Int>): List<Int> {
 fun List<String>.filterByLength(length: Int): List<String> {
     return this.filter { it.length == length }
 }
-
+inline fun <reified T> List<T>.filterDistinct(selector: (T) -> Any): List<T> {
+    val seen = HashSet<Any>()
+    return filter { seen.add(selector(it)) }
+}
 
 
 
