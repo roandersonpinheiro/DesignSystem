@@ -549,6 +549,9 @@ fun Double.roundToDecimals(decimals: Int): Double {
     val factor = 10.0.pow(decimals)
     return (this * factor).roundToInt() / factor
 }
+fun <T> List<T>.filterOn(condition: (T) -> Boolean): List<T> {
+    return this.filter { item -> condition(item) }
+}
 
 
 
