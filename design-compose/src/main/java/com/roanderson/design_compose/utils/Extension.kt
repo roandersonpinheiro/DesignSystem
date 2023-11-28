@@ -25,6 +25,8 @@ import java.io.*
 import kotlin.experimental.and
 import java.util.Date
 import java.util.Calendar
+import kotlin.math.pow
+import kotlin.math.roundToInt
 import kotlin.math.sqrt
 
 
@@ -540,6 +542,12 @@ fun List<String>.filterByLength(length: Int): List<String> {
 inline fun <reified T> List<T>.filterDistinct(selector: (T) -> Any): List<T> {
     val seen = HashSet<Any>()
     return filter { seen.add(selector(it)) }
+}
+fun Double.roundToDecimals(decimals: Int): Double {
+    require(decimals >= 0) { "O número de casas decimais deve ser não negativo." }
+
+    val factor = 10.0.pow(decimals)
+    return (this * factor).roundToInt() / factor
 }
 
 
