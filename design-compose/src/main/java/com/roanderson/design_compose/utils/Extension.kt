@@ -552,6 +552,11 @@ fun Double.roundToDecimals(decimals: Int): Double {
 fun <T> List<T>.filterOn(condition: (T) -> Boolean): List<T> {
     return this.filter { item -> condition(item) }
 }
+fun String.isAnagram(other: String): Boolean {
+    val text1 = this.replace("\\s".toRegex(), "").toLowerCase()
+    val text2 = other.replace("\\s".toRegex(), "").toLowerCase()
+    return text1.toCharArray().sorted() == text2.toCharArray().sorted()
+}
 
 
 
