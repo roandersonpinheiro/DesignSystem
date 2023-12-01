@@ -557,6 +557,9 @@ fun String.isAnagram(other: String): Boolean {
     val text2 = other.replace("\\s".toRegex(), "").toLowerCase()
     return text1.toCharArray().sorted() == text2.toCharArray().sorted()
 }
+fun List<Int>.calculateSum(): Int {
+    return this.sum()
+}
 
 
 
