@@ -561,5 +561,9 @@ fun List<Int>.calculateSum(): Int {
     return this.sum()
 }
 
+fun generateRandomMatrix(rows: Int, columns: Int): Array<Array<Int>> {
+    val matrix = Array(rows) { Array(columns) { Random.nextInt(1, 100) } }
+    return matrix
+}
 
 
