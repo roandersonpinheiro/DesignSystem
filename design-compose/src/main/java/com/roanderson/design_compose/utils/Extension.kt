@@ -565,5 +565,21 @@ fun generateRandomMatrix(rows: Int, columns: Int): Array<Array<Int>> {
     val matrix = Array(rows) { Array(columns) { Random.nextInt(1, 100) } }
     return matrix
 }
+fun <T> List<T>.intercalar(other: List<T>): List<T> {
+    val result = mutableListOf<T>()
+    val iterator1 = this.iterator()
+    val iterator2 = other.iterator()
+
+    while (iterator1.hasNext() || iterator2.hasNext()) {
+        if (iterator1.hasNext()) {
+            result.add(iterator1.next())
+        }
+        if (iterator2.hasNext()) {
+            result.add(iterator2.next())
+        }
+    }
+
+    return result
+}
 
 
