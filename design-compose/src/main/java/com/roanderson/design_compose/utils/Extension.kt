@@ -588,5 +588,18 @@ fun fibonacci(n: Int): Int {
         fibonacci(n - 1) + fibonacci(n - 2)
     }
 }
+fun multiplyLists(list1: List<Int>, list2: List<Int>): List<Int> {
+    if (list1.size != list2.size) {
+        throw IllegalArgumentException("Lists must have the same size")
+    }
+
+    val result = mutableListOf<Int>()
+
+    for (i in list1.indices) {
+        result.add(list1[i] * list2[i])
+    }
+
+    return result
+}
 
 
