@@ -602,4 +602,26 @@ fun multiplyLists(list1: List<Int>, list2: List<Int>): List<Int> {
     return result
 }
 
+inline fun <reified T> createAndFillArray(size: Int, values: List<T>): Array<T>? {
+
+    if (size <= 0) {
+        println("The array size must be greater than zero.")
+        return null
+    }
+
+
+    if (values.size != size) {
+        println("The values list must have the same size as the specified array.")
+        return null
+    }
+
+
+    val array = arrayOfNulls<T>(size)
+    for (i in 0 until size) {
+        array[i] = values[i]
+    }
+
+    return array.requireNoNulls()
+}
+
 
