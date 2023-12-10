@@ -623,5 +623,10 @@ inline fun <reified T> createAndFillArray(size: Int, values: List<T>): Array<T>?
 
     return array.requireNoNulls()
 }
+fun fillMatrix(rows: Int, cols: Int, value: Int): List<List<Int>> {
+    return (0 until rows).map { row ->
+        (0 until cols).map { col -> value }
+    }
+}
 
 
