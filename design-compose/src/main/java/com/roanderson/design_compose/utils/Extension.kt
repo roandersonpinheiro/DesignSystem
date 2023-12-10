@@ -628,5 +628,14 @@ fun fillMatrix(rows: Int, cols: Int, value: Int): List<List<Int>> {
         (0 until cols).map { col -> value }
     }
 }
+fun linearSearch(list: List<Int>, target: Int): Int {
+  for (index in 0 until list.size) {
+    if (list[index] == target) {
+      return index
+    }
+  }
+
+  return -1
+}
 
 
