@@ -637,5 +637,8 @@ fun linearSearch(list: List<Int>, target: Int): Int {
 
   return -1
 }
+fun convertArrayListToMap(arrayList: ArrayList<Pair<String, Int>>): Map<String, Int> {
+    return arrayList.associateBy({ it.first }, { it.second })
+}
 
 
