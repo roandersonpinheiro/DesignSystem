@@ -640,5 +640,17 @@ fun linearSearch(list: List<Int>, target: Int): Int {
 fun convertArrayListToMap(arrayList: ArrayList<Pair<String, Int>>): Map<String, Int> {
     return arrayList.associateBy({ it.first }, { it.second })
 }
+fun <T> splitArray(array: Array<T>, partSize: Int): List<List<T>> {
+    require(partSize > 0) { "Part size must be greater than zero." }
+
+    val parts = mutableListOf<List<T>>()
+
+    for (i in 0 until array.size step partSize) {
+        val part = array.sliceArray(i until (i + partSize).coerceAtMost(array.size))
+        parts.add(part.toList())
+    }
+
+    return parts
+}
 
 
