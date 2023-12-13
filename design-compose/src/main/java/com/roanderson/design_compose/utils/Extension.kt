@@ -652,5 +652,12 @@ fun <T> splitArray(array: Array<T>, partSize: Int): List<List<T>> {
 
     return parts
 }
+fun calcularPorcentagem(x: Double, y: Double): Double {
+    if (y < 0.0 || y > 100.0) {
+        throw IllegalArgumentException("A porcentagem deve estar entre 0 e 100.")
+    }
+
+    return (y / 100.0) * x
+}
 
 
