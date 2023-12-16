@@ -679,3 +679,29 @@ fun calculateHypotenuse(leg1: Double, leg2: Double): Double {
     val hypotenuse = sqrt(sumOfSquares)
     return hypotenuse
 }
+ 
+fun calculateRoots(a: Double, b: Double, c: Double): String {
+    // Calculate the discriminant (b^2 - 4ac)
+    val discriminant = b * b - 4 * a * c
+
+    // Determine the nature and number of roots based on the discriminant
+    return when {
+        discriminant > 0 -> {
+            // Two distinct real roots
+            val root1 = (-b + sqrt(discriminant)) / (2 * a)
+            val root2 = (-b - sqrt(discriminant)) / (2 * a)
+            "Two distinct real roots: $root1 and $root2"
+        }
+        discriminant == 0.0 -> {
+            // One real root (coincident roots)
+            val root = -b / (2 * a)
+            "One real root (coincident roots): $root"
+        }
+        else -> {
+            // No real roots (imaginary roots)
+            val realPart = -b / (2 * a)
+            val imaginaryPart = sqrt(-discriminant) / (2 * a)
+            "No real roots (imaginary roots): $realPart + $imaginaryPart i and $realPart - $imaginaryPart i"
+        }
+    }
+}
