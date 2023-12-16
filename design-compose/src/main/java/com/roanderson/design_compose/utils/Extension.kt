@@ -674,4 +674,8 @@ fun calculateGCD(a: Int, b: Int): Int {
     }
     return num1
 }
-
+fun calculateHypotenuse(leg1: Double, leg2: Double): Double {
+    val sumOfSquares = leg1 * leg1 + leg2 * leg2
+    val hypotenuse = sqrt(sumOfSquares)
+    return hypotenuse
+}
