@@ -98,9 +98,12 @@ fun <T> List<T>.shuffle(): List<T> {
 
 @RequiresApi(Build.VERSION_CODES.O)
 fun File.toBase64(): String {
-    val bytes = Files.readAllBytes(this.toPath())
-    val base64 = Base64.getEncoder().encodeToString(bytes)
-    return base64
+    val inputStream = FileInputStream(this)
+    val byteArray = ByteArray(this.length().toInt())
+    inputStream.read(byteArray)
+    inputStream.close()
+
+    return Base64.encodeToString(byteArray, Base64.DEFAULT)
 }
 
 private const val TOKEN_KEY = "token_key"
