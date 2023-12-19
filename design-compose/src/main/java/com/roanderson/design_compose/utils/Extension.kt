@@ -561,10 +561,7 @@ fun List<Int>.calculateSum(): Int {
     return this.sum()
 }
 
-fun generateRandomMatrix(rows: Int, columns: Int): Array<Array<Int>> {
-    val matrix = Array(rows) { Array(columns) { Random.nextInt(1, 100) } }
-    return matrix
-}
+
 fun <T> List<T>.intercalar(other: List<T>): List<T> {
     val result = mutableListOf<T>()
     val iterator1 = this.iterator()
@@ -602,27 +599,7 @@ fun multiplyLists(list1: List<Int>, list2: List<Int>): List<Int> {
     return result
 }
 
-inline fun <reified T> createAndFillArray(size: Int, values: List<T>): Array<T>? {
 
-    if (size <= 0) {
-        println("The array size must be greater than zero.")
-        return null
-    }
-
-
-    if (values.size != size) {
-        println("The values list must have the same size as the specified array.")
-        return null
-    }
-
-
-    val array = arrayOfNulls<T>(size)
-    for (i in 0 until size) {
-        array[i] = values[i]
-    }
-
-    return array.requireNoNulls()
-}
 fun fillMatrix(rows: Int, cols: Int, value: Int): List<List<Int>> {
     return (0 until rows).map { row ->
         (0 until cols).map { col -> value }
@@ -680,7 +657,7 @@ fun calculateHypotenuse(leg1: Double, leg2: Double): Double {
     return hypotenuse
 }
  
-fun calculateRoots(a: Double, b: Double, c: Double): String {
+ fun calculateRoots(a: Double, b: Double, c: Double): String {
     // Calculate the discriminant (b^2 - 4ac)
     val discriminant = b * b - 4 * a * c
 
