@@ -8,7 +8,7 @@ import androidx.annotation.RequiresApi
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
-import java.lang.Math.sqrt
+import kotlin.math.sqrt
 import java.nio.file.Files
 import java.util.*
 import android.util.Base64
