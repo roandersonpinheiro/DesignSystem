@@ -717,3 +717,6 @@ fun evaluateExpression(value1: Boolean, value2: Boolean, operator: String): Bool
         else -> throw IllegalArgumentException("Operador desconhecido: $operator")
     }
 }
+inline fun <reified T : Any> T?.orElse(defaultValue: T): T {
+    return this ?: defaultValue
+}
