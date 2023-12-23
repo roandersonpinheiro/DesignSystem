@@ -720,3 +720,12 @@ fun evaluateExpression(value1: Boolean, value2: Boolean, operator: String): Bool
 inline fun <reified T : Any> T?.orElse(defaultValue: T): T {
     return this ?: defaultValue
 }
+
+class CustomException(message: String) : Exception(message)
+
+fun divide(a: Int, b: Int): Int {
+    if (b == 0) {
+        throw CustomException("Cannot divide by zero.")
+    }
+    return a / b
+}
