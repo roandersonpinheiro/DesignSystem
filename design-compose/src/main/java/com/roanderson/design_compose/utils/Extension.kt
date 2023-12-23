@@ -729,3 +729,6 @@ fun divide(a: Int, b: Int): Int {
     }
     return a / b
 }
+fun getRandomNumber(min: Int, max: Int): Int {
+    return (min..max).random()
+}
