@@ -2,6 +2,7 @@ package com.roanderson.design_compose.utils
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
 import android.net.Uri
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -21,6 +22,7 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import java.util.Random
@@ -85,5 +87,20 @@ fun Context.openUrlInBrowser(url: String) {
 @Composable
 fun ControlKeyboard() {
     val keyboardController = LocalSoftwareKeyboardController.current
+}
+@Composable
+fun screenWidth(): Dp {
+    val resources: Resources = LocalContext.current.resources
+    return with(resources.displayMetrics) {
+        widthPixels.dp
+    }
+}
+
+@Composable
+fun screenHeight(): Dp {
+    val resources: Resources = LocalContext.current.resources
+    return with(resources.displayMetrics) {
+        heightPixels.dp
+    }
 }
 
