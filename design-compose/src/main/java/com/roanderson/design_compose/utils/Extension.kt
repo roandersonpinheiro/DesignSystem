@@ -745,5 +745,11 @@ fun binarySearchRecursive(arr: IntArray, target: Int, low: Int, high: Int): Int 
         else -> binarySearchRecursive(arr, target, low, mid - 1)
     }
 }
-
+fun newtonRaphson(squareRootOf: Double, epsilon: Double): Double {
+    var approximation = squareRootOf / 2.0
+    while (Math.abs(approximation * approximation - squareRootOf) > epsilon) {
+        approximation = 0.5 * (approximation + squareRootOf / approximation)
+    }
+    return approximation
+}
 
