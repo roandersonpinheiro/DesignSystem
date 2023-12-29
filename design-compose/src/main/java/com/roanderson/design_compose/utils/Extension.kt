@@ -732,3 +732,18 @@ fun divide(a: Int, b: Int): Int {
 fun getRandomNumber(min: Int, max: Int): Int {
     return (min..max).random()
 }
+fun binarySearchRecursive(arr: IntArray, target: Int, low: Int, high: Int): Int {
+    if (low > high) {
+        return -1 // Element not found
+    }
+
+    val mid = (low + high) / 2
+
+    return when {
+        arr[mid] == target -> mid
+        arr[mid] < target -> binarySearchRecursive(arr, target, mid + 1, high)
+        else -> binarySearchRecursive(arr, target, low, mid - 1)
+    }
+}
+
+
