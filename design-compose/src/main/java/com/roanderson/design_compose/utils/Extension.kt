@@ -752,4 +752,22 @@ fun newtonRaphson(squareRootOf: Double, epsilon: Double): Double {
     }
     return approximation
 }
+fun knapsack(weights: IntArray, values: IntArray, capacity: Int): Int {
+    val n = weights.size
+    val dp = Array(n + 1) { IntArray(capacity + 1) }
+
+    for (i in 0..n) {
+        for (w in 0..capacity) {
+            if (i == 0 || w == 0) {
+                dp[i][w] = 0
+            } else if (weights[i - 1] <= w) {
+                dp[i][w] = maxOf(values[i - 1] + dp[i - 1][w - weights[i - 1]], dp[i - 1][w])
+            } else {
+                dp[i][w] = dp[i - 1][w]
+            }
+        }
+    }
+
+    return dp[n][capacity]
+}
 
