@@ -771,3 +771,11 @@ fun knapsack(weights: IntArray, values: IntArray, capacity: Int): Int {
     return dp[n][capacity]
 }
 
+fun String.ellipsize(maxLength: Int): String {
+    return if (length > maxLength) {
+        substring(0, maxLength - 3) + "..."
+    } else {
+        this
+    }
+}
+
