@@ -778,4 +778,10 @@ fun String.ellipsize(maxLength: Int): String {
         this
     }
 }
+fun validateCep(cep: String): Boolean {
+    // Expected format: 12345-678 or 12345678
+    val cepRegex = """^\d{5}-?\d{3}$""".toRegex()
+
+    return cep.matches(cepRegex)
+}
 
