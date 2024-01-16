@@ -3,6 +3,7 @@ package com.roanderson.design_compose.utils
 import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
+import android.graphics.Color
 import android.net.Uri
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -103,4 +104,12 @@ fun screenHeight(): Dp {
         heightPixels.dp
     }
 }
+@Composable
+fun Modifier.gradientBackground(colors: List<Color>): Modifier =
+    this.then(
+        drawWithContent {
+            drawRect(brush = Brush.verticalGradient(colors), size = this.size)
+            drawContent()
+        }
+    )
 
