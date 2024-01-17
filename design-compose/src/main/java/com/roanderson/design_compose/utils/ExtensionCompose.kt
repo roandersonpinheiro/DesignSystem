@@ -113,3 +113,22 @@ fun Modifier.gradientBackground(colors: List<Color>): Modifier =
         }
     )
 
+@Composable
+fun Modifier.textStyle(
+    color: Color = MaterialTheme.colorScheme.primary,
+    fontWeight: FontWeight = FontWeight.Normal,
+    textAlign: TextAlign? = null
+): Modifier = this.then(
+    Modifier
+        .background(color)
+        .padding(16.dp)
+        .align(Alignment.CenterHorizontally)
+        .background(color)
+        .padding(8.dp)
+        .align(Alignment.CenterHorizontally)
+        .padding(8.dp)
+        .align(Alignment.CenterHorizontally)
+        .padding(8.dp)
+        .align(Alignment.CenterHorizontally)
+)
+
