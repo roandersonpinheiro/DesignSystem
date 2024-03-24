@@ -788,4 +788,11 @@ fun isLeapYear(year: Int): Boolean {
     return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)
 }
 
+fun Double.formatCurrency(): String {
+    val df = DecimalFormat.getCurrencyInstance(Locale("pt", "BR"))
+    val dfs = df.decimalFormatSymbols
+    dfs.currencySymbol = "R$"
+    df.decimalFormatSymbols = dfs
+    return df.format(this)
+}
 
