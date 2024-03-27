@@ -12,6 +12,7 @@ import kotlin.math.sqrt
 import java.nio.file.Files
 import java.util.*
 import android.util.Base64
+import androidx.compose.runtime.Composable
 import java.io.ByteArrayInputStream
 import java.io.IOException
 import java.io.ObjectOutputStream
@@ -22,6 +23,7 @@ import java.security.MessageDigest
 import kotlin.time.Duration.Companion.seconds
 import kotlin.time.ExperimentalTime
 import java.io.*
+import java.text.DecimalFormat
 import kotlin.experimental.and
 import java.util.Date
 import java.util.Calendar
@@ -794,5 +796,22 @@ fun Double.formatCurrency(): String {
     dfs.currencySymbol = "R$"
     df.decimalFormatSymbols = dfs
     return df.format(this)
+}
+@Composable
+fun String.formatCPF(): String {
+    return if (this.length == 11) {
+        "${this.substring(0, 3)}.${this.substring(3, 6)}.${this.substring(6, 9)}-${this.substring(9, 11)}"
+    } else {
+        this
+    }
+}
+
+@Composable
+fun String.formatCNPJ(): String {
+    return if (this.length == 14) {
+        "${this.substring(0, 2)}.${this.substring(2, 5)}.${this.substring(5, 8)}/${this.substring(8, 12)}-${this.substring(12, 14)}"
+    } else {
+        this
+    }
 }
 
