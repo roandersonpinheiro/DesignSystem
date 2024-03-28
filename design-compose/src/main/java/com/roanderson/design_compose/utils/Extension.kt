@@ -815,3 +815,20 @@ fun String.formatCNPJ(): String {
     }
 }
 
+import kotlin.random.Random
+
+fun List<Int>.pickRandomNumbers(quantity: Int): List<Int> {
+    require(quantity <= size) { "The quantity of numbers to pick cannot be greater than the size of the list" }
+
+    val pickedNumbers = mutableListOf<Int>()
+    val availableNumbers = this.toMutableList()
+
+    repeat(quantity) {
+        val randomIndex = Random.nextInt(availableNumbers.size)
+        val pickedNumber = availableNumbers.removeAt(randomIndex)
+        pickedNumbers.add(pickedNumber)
+    }
+
+    return pickedNumbers
+}
+
