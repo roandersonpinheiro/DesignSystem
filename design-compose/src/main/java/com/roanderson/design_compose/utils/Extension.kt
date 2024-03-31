@@ -831,4 +831,16 @@ fun List<Int>.pickRandomNumbers(quantity: Int): List<Int> {
 
     return pickedNumbers
 }
+fun createMatrix(rows: Int, cols: Int): Array<Array<Int>> {
+    var counter = 1
+    val matrix = Array(rows) { Array(cols) { 0 } }
 
+    for (i in 0 until rows) {
+        for (j in 0 until cols) {
+            matrix[i][j] = counter
+            counter++
+        }
+    }
+
+    return matrix
+}
