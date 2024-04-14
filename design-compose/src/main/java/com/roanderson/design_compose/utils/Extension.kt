@@ -844,3 +844,10 @@ fun createMatrix(rows: Int, cols: Int): Array<Array<Int>> {
 
     return matrix
 }
+fun centimetersToMeters(centimeters: Double): Double {
+    return centimeters / 100.0
+}
+
+fun metersToCentimeters(meters: Double): Double {
+    return meters * 100.0
+}
