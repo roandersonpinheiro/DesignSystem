@@ -1,7 +1,9 @@
 package com.roanderson.design_compose.utils
 
+import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -13,6 +15,8 @@ import java.nio.file.Files
 import java.util.*
 import android.util.Base64
 import androidx.compose.runtime.Composable
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import java.io.ByteArrayInputStream
 import java.io.IOException
 import java.io.ObjectOutputStream
@@ -790,13 +794,7 @@ fun isLeapYear(year: Int): Boolean {
     return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)
 }
 
-fun Double.formatCurrency(): String {
-    val df = DecimalFormat.getCurrencyInstance(Locale("pt", "BR"))
-    val dfs = df.decimalFormatSymbols
-    dfs.currencySymbol = "R$"
-    df.decimalFormatSymbols = dfs
-    return df.format(this)
-}
+
 @Composable
 fun String.formatCPF(): String {
     return if (this.length == 11) {
@@ -850,4 +848,13 @@ fun centimetersToMeters(centimeters: Double): Double {
 
 fun metersToCentimeters(meters: Double): Double {
     return meters * 100.0
+}
+fun checkPermission(activity: Activity, permission: String): Boolean {
+    return ContextCompat.checkSelfPermission(
+        activity,
+        permission
+    ) == PackageManager.PERMISSION_GRANTED
+}
+fun requestPermission(activity: Activity, permission: String, requestCode: Int) {
+    ActivityCompat.requestPermissions(activity, arrayOf(permission), requestCode)
 }
