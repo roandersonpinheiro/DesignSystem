@@ -34,6 +34,9 @@ import java.util.Calendar
 import kotlin.math.pow
 import kotlin.math.roundToInt
 import kotlin.math.sqrt
+import java.time.LocalDate
+import java.time.format.TextStyle
+import java.util.Locale
 
 
 fun Date.isFuture(): Boolean {
@@ -857,4 +860,14 @@ fun checkPermission(activity: Activity, permission: String): Boolean {
 }
 fun requestPermission(activity: Activity, permission: String, requestCode: Int) {
     ActivityCompat.requestPermissions(activity, arrayOf(permission), requestCode)
+}
+fun getCurrentMonthAsString(): String {
+    val calendar = Calendar.getInstance()
+    val month = calendar.get(Calendar.MONTH) + 1
+    return month.toString()
+}
+fun getCurrentMonthNameInPortuguese(): String {
+    val currentMonth = LocalDate.now().month
+    val locale = Locale("pt", "BR")
+    return currentMonth.getDisplayName(TextStyle.FULL, locale)
 }
