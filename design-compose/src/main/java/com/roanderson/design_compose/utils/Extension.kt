@@ -871,3 +871,15 @@ fun getCurrentMonthNameInPortuguese(): String {
     val locale = Locale("pt", "BR")
     return currentMonth.getDisplayName(TextStyle.FULL, locale)
 }
+fun round(number: Double): Long {
+    return Math.round(number)
+}
+fun naturalLogarithm(number: Double): Double {
+    return Math.log(number)
+}
+fun base10Logarithm(number: Double): Double {
+    return Math.log10(number)
+}
+fun arccosine(value: Double): Double {
+    return Math.acos(value)
+}
