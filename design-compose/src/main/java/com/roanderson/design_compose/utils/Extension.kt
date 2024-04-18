@@ -12,6 +12,7 @@ import java.io.File
 import java.io.FileOutputStream
 import kotlin.math.sqrt
 import java.nio.file.Files
+import kotlin.random.Random
 import java.util.*
 import android.util.Base64
 import androidx.compose.runtime.Composable
@@ -816,7 +817,7 @@ fun String.formatCNPJ(): String {
     }
 }
 
-import kotlin.random.Random
+
 
 fun List<Int>.pickRandomNumbers(quantity: Int): List<Int> {
     require(quantity <= size) { "The quantity of numbers to pick cannot be greater than the size of the list" }
@@ -866,11 +867,7 @@ fun getCurrentMonthAsString(): String {
     val month = calendar.get(Calendar.MONTH) + 1
     return month.toString()
 }
-fun getCurrentMonthNameInPortuguese(): String {
-    val currentMonth = LocalDate.now().month
-    val locale = Locale("pt", "BR")
-    return currentMonth.getDisplayName(TextStyle.FULL, locale)
-}
+
 fun round(number: Double): Long {
     return Math.round(number)
 }
