@@ -880,3 +880,8 @@ fun base10Logarithm(number: Double): Double {
 fun arccosine(value: Double): Double {
     return Math.acos(value)
 }
+fun <K, V, R> Map<K, V>.mapValues(transform: (Map.Entry<K, V>) -> R): List<R> {
+    return this.map { entry -> transform(entry) }
+}
+//val map = mapOf("a" to 1, "b" to 2, "c" to 3)
+//val transformedValues = map.mapValues { entry -> "${entry.key}${entry.value}" }
