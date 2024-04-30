@@ -885,3 +885,14 @@ fun <K, V, R> Map<K, V>.mapValues(transform: (Map.Entry<K, V>) -> R): List<R> {
 }
 //val map = mapOf("a" to 1, "b" to 2, "c" to 3)
 //val transformedValues = map.mapValues { entry -> "${entry.key}${entry.value}" }
+fun calculateAverageVelocity(distance: Float, time: Float): Float {
+    return distance / time
+}
+fun calculateForce(mass: Float, acceleration: Float): Float {
+    return mass * acceleration
+}
+fun calculateWork(force: Float, displacement: Float, angle: Float): Float {
+    val work = force * displacement * cos(angle)
+    // Use the cos() function to calculate the cosine of the angle
+    return work
+}
