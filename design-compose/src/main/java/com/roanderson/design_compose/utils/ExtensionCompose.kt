@@ -131,4 +131,8 @@ fun Modifier.textStyle(
         .padding(8.dp)
         .align(Alignment.CenterHorizontally)
 )
+fun getColorByTheme(lightColor: Color, darkColor: Color, context: Context): Color {
+    val isDarkTheme = (context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
+    return if (isDarkTheme) darkColor else lightColor
+}
 
