@@ -2,6 +2,7 @@ package com.roanderson.design_compose.utils
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.Color
 import android.net.Uri
@@ -136,3 +137,7 @@ fun getColorByTheme(lightColor: Color, darkColor: Color, context: Context): Colo
     return if (isDarkTheme) darkColor else lightColor
 }
 
+fun openLinkInBrowser(url: String, context: Context) {
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    context.startActivity(intent)
+}
