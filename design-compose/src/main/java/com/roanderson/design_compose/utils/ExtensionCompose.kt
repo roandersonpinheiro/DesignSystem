@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.content.res.Resources
-import android.graphics.Color
 import android.net.Uri
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -68,14 +67,6 @@ fun Modifier.autoShowSoftKeyboardOnFocus(padding: Dp = 0.dp): Modifier {
 
     return this.padding(padding)
 }
-fun Random.nextColor(): Color {
-    return Color(
-        red = nextFloat(),
-        green = nextFloat(),
-        blue = nextFloat(),
-        alpha = 1.0f
-    )
-}
 fun Modifier.roundedCorner(radius: Int = 4): Modifier {
     return this.then(
         Modifier.clip(shape = RoundedCornerShape(radius.dp))
@@ -105,37 +96,7 @@ fun screenHeight(): Dp {
         heightPixels.dp
     }
 }
-@Composable
-fun Modifier.gradientBackground(colors: List<Color>): Modifier =
-    this.then(
-        drawWithContent {
-            drawRect(brush = Brush.verticalGradient(colors), size = this.size)
-            drawContent()
-        }
-    )
 
-@Composable
-fun Modifier.textStyle(
-    color: Color = MaterialTheme.colorScheme.primary,
-    fontWeight: FontWeight = FontWeight.Normal,
-    textAlign: TextAlign? = null
-): Modifier = this.then(
-    Modifier
-        .background(color)
-        .padding(16.dp)
-        .align(Alignment.CenterHorizontally)
-        .background(color)
-        .padding(8.dp)
-        .align(Alignment.CenterHorizontally)
-        .padding(8.dp)
-        .align(Alignment.CenterHorizontally)
-        .padding(8.dp)
-        .align(Alignment.CenterHorizontally)
-)
-fun getColorByTheme(lightColor: Color, darkColor: Color, context: Context): Color {
-    val isDarkTheme = (context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
-    return if (isDarkTheme) darkColor else lightColor
-}
 
 fun openLinkInBrowser(url: String, context: Context) {
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
