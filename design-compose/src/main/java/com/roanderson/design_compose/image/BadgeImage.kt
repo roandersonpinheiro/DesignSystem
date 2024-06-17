@@ -1,7 +1,5 @@
-package com.roanderson.design_compose
+package com.roanderson.design_compose.image
 
-import android.graphics.Color
-import android.graphics.ColorFilter
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -15,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.roanderson.design_compose.R
 
 @Composable
 fun BadgeImage(){

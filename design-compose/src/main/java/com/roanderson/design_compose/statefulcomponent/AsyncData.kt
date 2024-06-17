@@ -1,4 +1,4 @@
-package com.roanderson.design_compose
+package com.roanderson.design_compose.statefulcomponent
 
 import androidx.compose.runtime.Composable
 import com.roanderson.design_compose.generic.GenericError

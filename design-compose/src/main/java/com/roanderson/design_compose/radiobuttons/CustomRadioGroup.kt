@@ -1,4 +1,4 @@
-package com.roanderson.design_compose
+package com.roanderson.design_compose.radiobuttons
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

@@ -1,4 +1,4 @@
-package com.roanderson.design_compose
+package com.roanderson.design_compose.searchbar
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
