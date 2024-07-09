@@ -49,8 +49,6 @@ fun ParallaxEffect() {
         }
     }
 }
-
-@Preview(showBackground = true)
 @Composable
 fun PreviewParallaxEffect() {
     ParallaxEffect()
