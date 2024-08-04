@@ -8,6 +8,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.unit.Dp
@@ -37,7 +38,7 @@ fun CardWithFoldedCorner(
                 close()
             }
             drawIntoCanvas { canvas ->
-                canvas.drawPath(path, color = Color.Gray)
+                canvas.drawPath(path,paint = Paint())
             }
         }
     }
