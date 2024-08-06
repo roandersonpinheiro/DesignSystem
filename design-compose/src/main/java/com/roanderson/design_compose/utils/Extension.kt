@@ -883,3 +883,9 @@ fun arccosine(value: Double): Double {
 fun <K, V, R> Map<K, V>.mapValues(transform: (Map.Entry<K, V>) -> R): List<R> {
     return this.map { entry -> transform(entry) }
 }
+fun String.replaceLastChar(newChar: Char): String {
+    if (this.isNotEmpty()) {
+        return this.substring(0, this.length - 1) + newChar
+    }
+    return this
+}
