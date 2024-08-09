@@ -188,27 +188,7 @@ inline fun <T> T.applyIf(condition: Boolean, block: T.() -> Unit): T {
     }
 }
 
-data class Item(val name: String, val status: String)
 
-fun orderItemsByStatus(items: List<Item>): List<Item> {
-    return items.sortedWith(compareBy({ it.status != "Pending" }, { it.status }))
-}
-
-fun main() {
-    val items = listOf(
-        Item("Item 1", "Pending"),
-        Item("Item 2", "Completed"),
-        Item("Item 3", "In Progress"),
-        Item("Item 4", "Pending"),
-        Item("Item 5", "Completed")
-    )
-
-    val orderedItems = orderItemsByStatus(items)
-
-    orderedItems.forEach {
-        println("${it.name} - ${it.status}")
-    }
-}
 
 fun String.formatCpfOrCnpj(isCpf: Boolean): String {
     val digitsOnly = this.filter { it.isDigit() }
