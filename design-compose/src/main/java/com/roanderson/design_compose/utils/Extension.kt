@@ -283,28 +283,7 @@ fun Int.factorial(): Int {
     return if (this <= 1) 1 else this * (this - 1).factorial()
 }
 
-fun multiplyMatrices(matrixA: Array<Array<Int>>, matrixB: Array<Array<Int>>): Array<Array<Int>> {
-    val numRowsA = matrixA.size
-    val numColsA = matrixA[0].size
-    val numRowsB = matrixB.size
-    val numColsB = matrixB[0].size
 
-    if (numColsA != numRowsB) {
-        throw IllegalArgumentException("\"The number of columns in matrix A must be equal to the number of rows in matrix B")
-    }
-
-    val result = Array(numRowsA) { Array(numColsB) { 0 } }
-
-    for (i in 0 until numRowsA) {
-        for (j in 0 until numColsB) {
-            for (k in 0 until numColsA) {
-                result[i][j] += matrixA[i][k] * matrixB[k][j]
-            }
-        }
-    }
-
-    return result
-}
 
 fun generatePassword(length: Int): String {
     val charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+"
