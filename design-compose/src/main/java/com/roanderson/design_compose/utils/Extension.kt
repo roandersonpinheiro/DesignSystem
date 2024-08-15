@@ -132,21 +132,6 @@ fun Context.getToken(): String? {
     return sharedPreferences.getString(TOKEN_KEY, null)
 }
 
-class DoubleWrapper(val value: Double)
-
-fun DoubleWrapper.calculateBhaskara(a: Double, b: Double, c: Double): Pair<Double?, Double?> {
-    val discriminant = b * b - 4 * a * c
-
-    if (discriminant < 0) {
-        return Pair(null, null) // Não há raízes reais
-    }
-
-    val root1 = (-b + sqrt(discriminant)) / (2 * a)
-    val root2 = (-b - sqrt(discriminant)) / (2 * a)
-
-    return Pair(root1, root2)
-}
-
 fun String.base64ToFile(filePath: String): Boolean {
     try {
         val decodedBytes = Base64.decode(this, Base64.DEFAULT)
@@ -735,12 +720,7 @@ fun String.ellipsize(maxLength: Int): String {
         this
     }
 }
-fun validateCep(cep: String): Boolean {
-    // Expected format: 12345-678 or 12345678
-    val cepRegex = """^\d{5}-?\d{3}$""".toRegex()
 
-    return cep.matches(cepRegex)
-}
 fun isLeapYear(year: Int): Boolean {
     return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)
 }
