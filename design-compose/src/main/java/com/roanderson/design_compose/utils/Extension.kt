@@ -148,10 +148,7 @@ fun String.base64ToFile(filePath: String): Boolean {
 inline fun <T : Any, R> T?.withNotNull(block: (T) -> R): R? {
     return this?.let(block)
 }
-//usage
-//val nullableValue: String? = null
-//nullableValue.withNotNull { value ->
-//}
+
 
 fun Int.toFormattedString(): String {
     return NumberFormat.getInstance().format(this)
@@ -262,13 +259,6 @@ fun String.isValidEmail(): Boolean {
     val emailRegex = Regex("^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})")
     return emailRegex.matches(this)
 }
-
-
-fun Int.factorial(): Int {
-    return if (this <= 1) 1 else this * (this - 1).factorial()
-}
-
-
 
 fun generatePassword(length: Int): String {
     val charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+"
