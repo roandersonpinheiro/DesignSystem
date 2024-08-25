@@ -777,18 +777,6 @@ fun getCurrentMonthAsString(): String {
     return month.toString()
 }
 
-fun round(number: Double): Long {
-    return Math.round(number)
-}
-fun naturalLogarithm(number: Double): Double {
-    return Math.log(number)
-}
-fun base10Logarithm(number: Double): Double {
-    return Math.log10(number)
-}
-fun arccosine(value: Double): Double {
-    return Math.acos(value)
-}
 fun <K, V, R> Map<K, V>.mapValues(transform: (Map.Entry<K, V>) -> R): List<R> {
     return this.map { entry -> transform(entry) }
 }
