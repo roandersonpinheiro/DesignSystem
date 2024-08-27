@@ -323,18 +323,7 @@ fun <T> List<T>.splitIntoParts(partSize: Int): List<List<T>> {
     return parts
 }
 
-fun Date.calculateAge(): Int {
-    val calendar = Calendar.getInstance()
-    val today = calendar.time
-    val dob = this
 
-    calendar.time = dob
-    val dobYear = calendar.get(Calendar.YEAR)
-    calendar.time = today
-    val todayYear = calendar.get(Calendar.YEAR)
-
-    return todayYear - dobYear
-}
 
 fun List<Int>.findMax(): Int {
     require(this.isNotEmpty()) { "A lista não pode estar vazia" }
