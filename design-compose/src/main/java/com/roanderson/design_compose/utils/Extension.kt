@@ -172,34 +172,6 @@ inline fun <T> T.applyIf(condition: Boolean, block: T.() -> Unit): T {
 
 
 
-fun String.formatCpfOrCnpj(isCpf: Boolean): String {
-    val digitsOnly = this.filter { it.isDigit() }
-
-    if (isCpf) {
-        return if (digitsOnly.length == 11) {
-            "${digitsOnly.substring(0, 3)}.${digitsOnly.substring(3, 6)}.${
-                digitsOnly.substring(
-                    6,
-                    9
-                )
-            }-${digitsOnly.substring(9)}"
-        } else {
-            this
-        }
-    } else {
-        return if (digitsOnly.length == 14) {
-            "${digitsOnly.substring(0, 2)}.${digitsOnly.substring(2, 5)}.${
-                digitsOnly.substring(
-                    5,
-                    8
-                )
-            }/${digitsOnly.substring(8, 12)}-${digitsOnly.substring(12)}"
-        } else {
-            this
-        }
-    }
-}
-
 fun String.formatPlate(): String {
 
     val placaSemCaracteresEspeciais = this.replace("[^a-zA-Z0-9]".toRegex(), "")
