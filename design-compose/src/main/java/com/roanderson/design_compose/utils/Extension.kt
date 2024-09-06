@@ -320,9 +320,7 @@ fun Context?.isOnline(): Boolean {
     }
     return false
 }
-fun celsiusToFahrenheit(celsius: Double): Double {
-    return celsius * 9 / 5 + 32
-}
+
 fun <T> List<T>.concatenateWith(otherList: List<T>): List<T> {
     return this + otherList
 }
