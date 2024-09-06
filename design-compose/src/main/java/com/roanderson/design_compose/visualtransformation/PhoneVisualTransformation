@@ -1,0 +1,45 @@
+import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.input.OffsetMapping
+
+class PhoneVisualTransformation : VisualTransformation {
+    override fun filter(text: AnnotatedString): TransformedText {
+        
+        val digits = text.text.filter { it.isDigit() }
+
+      
+        val formattedText = when (digits.length) {
+            in 1..2 -> "(${digits.take(2)})"
+            in 3..7 -> "(${digits.take(2)}) ${digits.drop(2)}"
+            else -> "(${digits.take(2)}) ${digits.drop(2).take(5)}-${digits.drop(7)}"
+        }
+
+    
+        return TransformedText(
+            AnnotatedString(formattedText),
+            phoneOffsetMapping(digits)
+        )
+    }
+
+    private fun phoneOffsetMapping(digits: String): OffsetMapping {
+        return object : OffsetMapping {
+            override fun originalToTransformed(offset: Int): Int {
+                return when {
+                    offset <= 2 -> offset + 1 // Coloca o parêntese
+                    offset <= 7 -> offset + 3 // Coloca parêntese e espaço
+                    offset <= 11 -> offset + 4 // Coloca parêntese, espaço e traço
+                    else -> offset + 5 // Coloca parêntese, espaço, traço e mais
+                }
+            }
+
+            override fun transformedToOriginal(offset: Int): Int {
+                return when {
+                    offset <= 3 -> offset - 1 // Remove o parêntese
+                    offset <= 9 -> offset - 3 // Remove parêntese e espaço
+                    offset <= 14 -> offset - 4 // Remove parêntese, espaço e traço
+                    else -> offset - 5 // Remove parêntese, espaço, traço e mais
+                }
+            }
+        }
+    }
+}
