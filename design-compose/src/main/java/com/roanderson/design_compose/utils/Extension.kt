@@ -529,20 +529,6 @@ fun calcularPorcentagem(x: Double, y: Double): Double {
     return (y / 100.0) * x
 }
 
-fun calculateLCM(a: Int, b: Int): Int {
-    return (a * b) / calculateGCD(a, b)
-}
-
-fun calculateGCD(a: Int, b: Int): Int {
-    var num1 = a
-    var num2 = b
-    while (num2 != 0) {
-        val temp = num2
-        num2 = num1 % num2
-        num1 = temp
-    }
-    return num1
-}
 fun calculateHypotenuse(leg1: Double, leg2: Double): Double {
     val sumOfSquares = leg1 * leg1 + leg2 * leg2
     val hypotenuse = sqrt(sumOfSquares)
