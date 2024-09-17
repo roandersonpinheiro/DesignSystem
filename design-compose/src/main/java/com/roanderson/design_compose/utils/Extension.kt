@@ -239,14 +239,7 @@ fun generatePassword(length: Int): String {
         .joinToString("")
 }
 
-@OptIn(ExperimentalTime::class)
-fun offExpiration() {
-    val offerExpirationTimeInSeconds = 534_600.seconds
-    offerExpirationTimeInSeconds.toComponents { days, hrs, mins, secs, nanoSecs ->
-        println("Your offer about to expire in")
-        println("${days} days : ${hrs} hrs : ${mins} mins")
-    }
-}
+
 
 
 
