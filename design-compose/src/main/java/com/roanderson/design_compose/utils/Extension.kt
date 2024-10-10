@@ -11,6 +11,8 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import kotlin.math.sqrt
+import android.app.ActivityManager
+import android.content.Context
 import java.nio.file.Files
 import kotlin.random.Random
 import java.util.*
@@ -698,3 +700,17 @@ fun String.replaceLastChar(newChar: Char): String {
     }
     return this
 }
+
+
+fun Context.isActivityInStack(activityClass: Class<*>): Boolean {
+    val activityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+    val tasks = activityManager.getRunningTasks(Int.MAX_VALUE)
+
+    for (task in tasks) {
+        if (task.topActivity?.className == activityClass.name) {
+            return true
+        }
+    }
+    return false
+}
+
