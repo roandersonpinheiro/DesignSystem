@@ -118,21 +118,6 @@ fun File.toBase64(): String {
     return Base64.encodeToString(byteArray, Base64.DEFAULT)
 }
 
-private const val TOKEN_KEY = "token_key"
-
-fun Context.saveToken(token: String) {
-    val sharedPreferences: SharedPreferences =
-        getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
-    val editor = sharedPreferences.edit()
-    editor.putString(TOKEN_KEY, token)
-    editor.apply()
-}
-
-fun Context.getToken(): String? {
-    val sharedPreferences: SharedPreferences =
-        getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
-    return sharedPreferences.getString(TOKEN_KEY, null)
-}
 
 fun String.base64ToFile(filePath: String): Boolean {
     try {
