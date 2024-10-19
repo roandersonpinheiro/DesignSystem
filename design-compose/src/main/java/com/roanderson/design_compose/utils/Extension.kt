@@ -160,22 +160,6 @@ inline fun <T> T.applyIf(condition: Boolean, block: T.() -> Unit): T {
 
 
 
-fun Random.nextPassword(length: Int): String {
-    val charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-    return (1..length)
-        .map { charset.random() }
-        .joinToString("")
-}
-
-fun Random.nextMatrix(n: Int): Array<Array<Int>> {
-    val matrix = Array(n) { Array(n) { 0 } }
-    for (i in 0 until n) {
-        for (j in 0 until n) {
-            matrix[i][j] = this.nextInt()
-        }
-    }
-    return matrix
-}
 
 fun dataExpirou(dataExpiracao: String): Boolean {
     try {
