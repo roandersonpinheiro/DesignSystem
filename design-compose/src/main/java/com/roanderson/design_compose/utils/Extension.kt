@@ -182,10 +182,7 @@ val String.md5: String
         }
     }
 
-fun String.isValidEmail(): Boolean {
-    val emailRegex = Regex("^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})")
-    return emailRegex.matches(this)
-}
+
 
 fun generatePassword(length: Int): String {
     val charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+"
@@ -224,10 +221,6 @@ fun List<Int>.maxElement(): Int? {
     return if (isEmpty()) null else this.maxOrNull()
 }
 
-fun String.isPalindrome(): Boolean {
-    val cleanString = this.replace(Regex("[^A-Za-z0-9]"), "").toLowerCase()
-    return cleanString == cleanString.reversed()
-}
 
 fun String.blankSpaceRemover(): String {
     return this.replace(" ", "")
