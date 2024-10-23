@@ -161,18 +161,7 @@ inline fun <T> T.applyIf(condition: Boolean, block: T.() -> Unit): T {
 
 
 
-fun dataExpirou(dataExpiracao: String): Boolean {
-    try {
-        val formatoData = SimpleDateFormat("dd/MM/yyyy")
-        val dataAtual = Date()
-        val dataExpiracaoFormatada = formatoData.parse(dataExpiracao)
 
-        return dataAtual.after(dataExpiracaoFormatada)
-    } catch (e: Exception) {
-        e.printStackTrace()
-        return false
-    }
-}
 
 val String.md5: String
     get() {
@@ -384,14 +373,6 @@ fun Double.roundToDecimals(decimals: Int): Double {
 }
 fun <T> List<T>.filterOn(condition: (T) -> Boolean): List<T> {
     return this.filter { item -> condition(item) }
-}
-fun String.isAnagram(other: String): Boolean {
-    val text1 = this.replace("\\s".toRegex(), "").toLowerCase()
-    val text2 = other.replace("\\s".toRegex(), "").toLowerCase()
-    return text1.toCharArray().sorted() == text2.toCharArray().sorted()
-}
-fun List<Int>.calculateSum(): Int {
-    return this.sum()
 }
 
 
