@@ -669,3 +669,7 @@ fun Boolean?.orFalse() = this ?: false
 
 fun Boolean?.orTrue() = this ?: true
 
+fun Modifier.defaultPadding(): Modifier {
+    return this.padding(16.dp)
+}
+
