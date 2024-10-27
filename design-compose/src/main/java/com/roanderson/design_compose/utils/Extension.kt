@@ -93,33 +93,7 @@ fun Random.nextRandomLetter(): Char {
     val alphabet = ('a'..'z').toList()
     return alphabet[this.nextInt(alphabet.size)]
 }
-
-fun <T> List<T>.shuffle(): List<T> {
-    val shuffledList = this.toMutableList()
-    val random = java.util.Random()
-
-    for (i in shuffledList.size - 1 downTo 1) {
-        val j = random.nextInt(i + 1)
-        val temp = shuffledList[i]
-        shuffledList[i] = shuffledList[j]
-        shuffledList[j] = temp
-    }
-
-    return shuffledList
-}
-
-@RequiresApi(Build.VERSION_CODES.O)
-fun File.toBase64(): String {
-    val inputStream = FileInputStream(this)
-    val byteArray = ByteArray(this.length().toInt())
-    inputStream.read(byteArray)
-    inputStream.close()
-
-    return Base64.encodeToString(byteArray, Base64.DEFAULT)
-}
-
-
-fun String.base64ToFile(filePath: String): Boolean {
+String): Boolean {
     try {
         val decodedBytes = Base64.decode(this, Base64.DEFAULT)
         val outputStream = FileOutputStream(filePath)
