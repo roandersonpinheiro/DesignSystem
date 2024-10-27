@@ -672,4 +672,12 @@ fun Boolean?.orTrue() = this ?: true
 fun Modifier.defaultPadding(): Modifier {
     return this.padding(16.dp)
 }
+fun Modifier.longClickableWithRipple(onLongClick: () -> Unit) = composed {
+    this.pointerInput(Unit) {
+        detectTapGestures(onLongPress = { onLongClick() })
+    }.indication(
+        interactionSource = MutableInteractionSource(),
+        indication = rememberRipple(bounded = true)
+    )
+}
 
