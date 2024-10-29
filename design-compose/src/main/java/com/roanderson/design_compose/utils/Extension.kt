@@ -433,27 +433,7 @@ fun calculateHypotenuse(leg1: Double, leg2: Double): Double {
  
 
 
-fun printTruthTable(variable1: String, variable2: String, operators: List<String>) {
-    // Imprime cabeçalho da tabela
-    println("| $variable1 | $variable2 | ${operators.joinToString(" | ")} | !A | !B |")
 
-    // Imprime linha de separação
-    println("|---|---|${"---|".repeat(operators.size + 2)}")
-
-    // Gera tabela verdade
-    for (value1 in listOf(true, false)) {
-        for (value2 in listOf(true, false)) {
-            val results = operators.map { operator ->
-                evaluateExpression(value1, value2, operator)
-            }
-            val resultNOT1 = !value1
-            val resultNOT2 = !value2
-
-            // Imprime linha da tabela
-            println("| $value1 | $value2 | ${results.joinToString(" | ")} |   $resultNOT1   |   $resultNOT2   |")
-        }
-    }
-}
 
 fun evaluateExpression(value1: Boolean, value2: Boolean, operator: String): Boolean {
     return when (operator) {
