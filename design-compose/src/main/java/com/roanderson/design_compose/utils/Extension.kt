@@ -432,18 +432,6 @@ fun calculateHypotenuse(leg1: Double, leg2: Double): Double {
 }
  
 
-
-
-
-fun evaluateExpression(value1: Boolean, value2: Boolean, operator: String): Boolean {
-    return when (operator) {
-        "&&" -> value1 && value2
-        "||" -> value1 || value2
-        "xor" -> value1 xor value2
-        "->" -> !value1 || value2
-        else -> throw IllegalArgumentException("Operador desconhecido: $operator")
-    }
-}
 inline fun <reified T : Any> T?.orElse(defaultValue: T): T {
     return this ?: defaultValue
 }
