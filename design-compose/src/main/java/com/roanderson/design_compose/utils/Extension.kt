@@ -628,4 +628,18 @@ fun Modifier.customBorder(color: Color = Color.Blue, borderWidth: Float = 2f): M
         .border(width = borderWidth.dp, color = color)
         .background(Color.LightGray) // Exemplo de fundo para contraste
 }
+fun Modifier.customShadow(
+    color: Color = Color.Black,
+    radius: Dp = 8.dp,
+    offsetX: Dp = 0.dp,
+    offsetY: Dp = 4.dp
+): Modifier {
+    return this.shadow(
+        elevation = radius,
+        shape = androidx.compose.foundation.shape.RoundedCornerShape(8.dp),
+        ambientColor = color,
+        spotColor = color
+    )
+        .offset(x = offsetX, y = offsetY)
+}    
 
