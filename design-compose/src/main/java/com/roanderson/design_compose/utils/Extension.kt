@@ -635,3 +635,9 @@ fun Modifier.longClickableWithRipple(onLongClick: () -> Unit) = composed {
     )
 }
 
+fun Modifier.customBorder(color: Color = Color.Blue, borderWidth: Float = 2f): Modifier {
+    return this
+        .border(width = borderWidth.dp, color = color)
+        .background(Color.LightGray) // Exemplo de fundo para contraste
+}
+
