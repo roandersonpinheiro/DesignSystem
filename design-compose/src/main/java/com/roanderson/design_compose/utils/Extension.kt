@@ -643,3 +643,13 @@ fun Modifier.customShadow(
         .offset(x = offsetX, y = offsetY)
 }    
 
+
+fun Modifier.roundedBorder(
+    color: Color = Color.Gray,
+    width: Dp = 2.dp,
+    cornerRadius: Dp = 8.dp,
+): Modifier = this.then(
+    border(width, color, RoundedCornerShape(cornerRadius))
+)
+
+
