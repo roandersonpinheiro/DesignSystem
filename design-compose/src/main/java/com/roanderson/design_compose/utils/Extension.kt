@@ -653,3 +653,21 @@ fun Modifier.roundedBorder(
 )
 
 
+fun Modifier.gradientBackground(
+    colors: List<Color>,
+    startX: Float = 0f,
+    startY: Float = 0f,
+    endX: Float = 1000f,
+    endY: Float = 1000f,
+): Modifier = this.then(
+    background(
+        brush = Brush.linearGradient(
+            colors = colors,
+            start = androidx.compose.ui.geometry.Offset(startX, startY),
+            end = androidx.compose.ui.geometry.Offset(endX, endY),
+            tileMode = TileMode.Clamp
+        )
+    )
+)
+
+
