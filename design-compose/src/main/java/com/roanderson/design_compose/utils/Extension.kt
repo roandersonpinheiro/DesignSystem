@@ -669,5 +669,8 @@ fun Modifier.gradientBackground(
         )
     )
 )
+fun Modifier.paddingHorizontal(horizontal: Dp): Modifier = this.then(
+    padding(start = horizontal, end = horizontal)
+)
 
 
