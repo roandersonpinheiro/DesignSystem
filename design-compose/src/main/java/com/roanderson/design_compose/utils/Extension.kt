@@ -672,5 +672,33 @@ fun Modifier.gradientBackground(
 fun Modifier.paddingHorizontal(horizontal: Dp): Modifier = this.then(
     padding(start = horizontal, end = horizontal)
 )
+fun Modifier.shake(
+    shakeDistance: Dp = 10.dp,
+    shakeDuration: Int = 300,
+): Modifier = composed {
+    var isShaking by remember { mutableStateOf(false) }
+
+    val offsetX by animateFloat(
+        initialValue = 0f,
+        targetValue = shakeDistance.value,
+        animationSpec = infiniteRepeatable(
+            animation = keyframes {
+                durationMillis = shakeDuration
+                0f at 0
+                shakeDistance.value at shakeDuration / 4
+                -shakeDistance.value at shakeDuration / 2
+                shakeDistance.value at 3 * shakeDuration / 4
+                0f at shakeDuration
+            },
+            repeatMode = RepeatMode.Restart
+        )
+    )
+
+    if (isShaking) {
+        this.then(Modifier.translate(x = offsetX.dp))
+    } else {
+        this
+    }
+}
 
 
