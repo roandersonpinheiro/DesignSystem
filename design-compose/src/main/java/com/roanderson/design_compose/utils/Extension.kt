@@ -701,4 +701,23 @@ fun Modifier.shake(
     }
 }
 
+fun Modifier.rotating(
+    durationMillis: Int = 1000,
+    initialRotation: Float = 0f,
+    targetRotation: Float = 360f
+): Modifier = composed {
+    val infiniteTransition = rememberInfiniteTransition()
+    val rotation by infiniteTransition.animateFloat(
+        initialValue = initialRotation,
+        targetValue = targetRotation,
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis, easing = LinearEasing),
+            repeatMode = RepeatMode.Restart
+        )
+    )
+
+    this.rotate(rotation)
+}
+
+
 
