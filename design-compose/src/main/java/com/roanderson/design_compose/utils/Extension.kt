@@ -720,4 +720,28 @@ fun Modifier.rotating(
 }
 
 
+fun Modifier.pulse(
+    minScale: Float = 0.9f, 
+    maxScale: Float = 1.2f,  
+    durationMillis: Int = 1000, 
+): Modifier = composed {
+    val infiniteTransition = rememberInfiniteTransition()
+
+  
+    val scale by infiniteTransition.animateFloat(
+        initialValue = minScale,
+        targetValue = maxScale,
+        animationSpec = infiniteRepeatable(
+            animation = tween(
+                durationMillis = durationMillis,
+                easing = FastOutSlowInEasing
+            ),
+            repeatMode = RepeatMode.Reverse
+        )
+    )
+
+    this.scale(scale)  
+}
+
+
 
