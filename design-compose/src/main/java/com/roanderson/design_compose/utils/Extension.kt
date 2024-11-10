@@ -742,6 +742,13 @@ fun Modifier.pulse(
 
     this.scale(scale)  
 }
+fun Modifier.blur(
+    blurRadius: Dp = 10.dp  // Raio do desfoque
+): Modifier = this.graphicsLayer {
+    shadowElevation = blurRadius.toPx()
+    shape = androidx.compose.foundation.shape.RectangleShape
+    clip = true
+}
 
 
 
