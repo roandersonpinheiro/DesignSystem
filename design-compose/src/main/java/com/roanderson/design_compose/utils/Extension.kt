@@ -750,5 +750,17 @@ fun Modifier.blur(
     clip = true
 }
 
+fun Modifier.clickableWithRipple(
+    rippleColor: Color = Color.Gray,
+    rippleRadius: Dp = 24.dp,
+    onClick: () -> Unit
+): Modifier = this.then(
+    clickable(
+        indication = rememberRipple(color = rippleColor, radius = rippleRadius),
+        interactionSource = remember { MutableInteractionSource() },
+        onClick = onClick
+    )
+)
+
 
 
