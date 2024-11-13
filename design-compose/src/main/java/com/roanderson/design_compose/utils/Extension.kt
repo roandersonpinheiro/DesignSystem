@@ -761,6 +761,22 @@ fun Modifier.clickableWithRipple(
         onClick = onClick
     )
 )
-
+fun Modifier.shadowed(
+    shadowColor: Color = Color.Black,
+    shadowRadius: Dp = 8.dp,
+    offsetX: Dp = 0.dp,
+    offsetY: Dp = 4.dp,
+    opacity: Float = 0.5f
+): Modifier = this.graphicsLayer {
+    shadowElevation = shadowRadius.toPx()
+    shape = androidx.compose.foundation.shape.RectangleShape
+    clip = true
+    renderEffect = androidx.compose.ui.graphics.RenderEffect.createBlurEffect(
+        shadowRadius.toPx(), shadowRadius.toPx(), androidx.compose.ui.graphics.TileMode.Decal
+    )
+    alpha = opacity
+    translationX = offsetX.toPx()
+    translationY = offsetY.toPx()
+}
 
 
