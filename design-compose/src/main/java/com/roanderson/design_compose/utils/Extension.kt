@@ -778,5 +778,14 @@ fun Modifier.shadowed(
     translationX = offsetX.toPx()
     translationY = offsetY.toPx()
 }
+fun Modifier.borderWithRadius(
+    borderColor: Color = Color.Black,
+    borderWidth: Dp = 2.dp,
+    cornerRadius: Dp = 8.dp,
+    shape: Shape = RoundedCornerShape(cornerRadius)
+): Modifier = this.border(
+    border = BorderStroke(borderWidth, borderColor),
+    shape = shape
+)
 
 
